@@ -87,7 +87,3 @@ Toda a documentação do projeto encontra-se na pasta **docs/**.
 - ⏳ Entrega final
 
 ---
-
-## 📄 Licença
-
-Este projeto possui finalidade exclusivamente acadêmica e foi desenvolvido para a disciplina de **Segurança de Software**.
