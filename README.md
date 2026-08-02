@@ -45,7 +45,13 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   ├── fluxo-do-sistema.drawio
 │   ├── fluxo-do-sistema.png
 │   ├── casos-de-abuso.drawio
-│   └── casos-de-abuso.png
+│   ├── casos-de-abuso.png
+│   ├── diagrama-stride.png
+│   └── modelo-de-ameacas.tm7
+├── materiais-complementares/
+│   ├── ameacas-stride-original.csv
+│   ├── ameacas-stride-original.xlsx
+│   └── ameacas-stride-selecionadas.xlsx
 └── imagens/
 ```
 
