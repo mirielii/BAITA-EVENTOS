@@ -46,7 +46,6 @@ Os participantes utilizarão as páginas públicas para consultar eventos, reali
 
 Os organizadores, avaliadores e administradores utilizarão uma área autenticada, com funcionalidades diferentes de acordo com suas responsabilidades.
 
-Os perfis, permissões e responsabilidades de cada usuário serão detalhados no documento [Usuários, ativos e pontos de interação](02-usuarios-ativos.md).
 
 ## 4. Principais funcionalidades
 
@@ -101,5 +100,3 @@ Os principais recursos que precisam ser protegidos são:
 - disponibilidade da plataforma.
 
 O acesso ou a alteração indevida desses recursos pode causar fraude, exposição de dados pessoais, resultados incorretos e interrupção das atividades.
-
-A identificação detalhada dos ativos e pontos de interação será apresentada no documento [Usuários, ativos e pontos de interação](02-usuarios-ativos.md).
