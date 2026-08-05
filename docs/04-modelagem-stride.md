@@ -1,4 +1,4 @@
-# 5. Modelagem de ameaças com STRIDE
+# 4. Modelagem de ameaças com STRIDE
 
 A modelagem de ameaças da Plataforma para Gestão de Eventos foi realizada com o auxílio do Microsoft Threat Modeling Tool.
 
@@ -20,7 +20,7 @@ A ferramenta aplicou automaticamente o modelo STRIDE aos elementos e fluxos repr
 
 Como as ameaças são produzidas automaticamente a partir dos tipos de elementos utilizados no diagrama, nem todas correspondem necessariamente a riscos aplicáveis à arquitetura da plataforma. Por esse motivo, foi realizada uma revisão de aplicabilidade antes da inclusão das ameaças no trabalho.
 
-## 5.1 Categorias do STRIDE
+## 4.1 Categorias do STRIDE
 
 O STRIDE organiza as ameaças em seis categorias:
 
@@ -33,7 +33,7 @@ O STRIDE organiza as ameaças em seis categorias:
 | Denial of Service | Indisponibilidade ou degradação do serviço | Disponibilidade |
 | Elevation of Privilege | Obtenção indevida de permissões | Autorização |
 
-## 5.2 Critérios de seleção
+## 4.2 Critérios de seleção
 
 Uma ameaça foi mantida quando atendia aos seguintes critérios:
 
@@ -60,7 +60,7 @@ Foram considerados ativos relevantes:
 - banco de dados;
 - disponibilidade da plataforma.
 
-## 5.3 Critérios de exclusão
+## 4.3 Critérios de exclusão
 
 Uma ameaça foi retirada quando apresentava uma ou mais das seguintes características:
 
@@ -75,7 +75,7 @@ Uma ameaça foi retirada quando apresentava uma ou mais das seguintes caracterí
 
 As exclusões não significam que a ferramenta apresentou um resultado incorreto. Elas indicam que o Microsoft Threat Modeling Tool gera possibilidades com base nos elementos do diagrama, cabendo aos responsáveis pelo sistema avaliar a aplicabilidade de cada resultado.
 
-## 5.4 Resultado da seleção
+## 4.4 Resultado da seleção
 
 Das 111 ameaças geradas automaticamente, 30 foram selecionadas para a análise contextualizada.
 
@@ -91,9 +91,9 @@ Das 111 ameaças geradas automaticamente, 30 foram selecionadas para a análise 
 
 O campo de prioridade não foi utilizado como critério de seleção, pois todas as ameaças foram exportadas pela ferramenta com prioridade `High`. Essa classificação automática não representa, isoladamente, o risco real de cada ameaça.
 
-## 5.5 Ameaças selecionadas
+## 4.5 Ameaças selecionadas
 
-### 5.5.1 Spoofing — falsificação de identidade
+### 4.5.1 Spoofing — falsificação de identidade
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
@@ -105,7 +105,7 @@ O campo de prioridade não foi utilizado como critério de seleção, pois todas
 | T06 | 113 | MongoDB como destino | Um banco falso se apresenta como o MongoDB utilizado pela plataforma. | Gravação de dados pessoais, inscrições ou avaliações em um destino controlado pelo atacante. |
 | T07 | 121 | MongoDB como origem | Uma fonte falsa se apresenta como o MongoDB e envia dados incorretos para a API. | Exibição de informações falsas e tomada de decisões com base em dados adulterados. |
 
-### 5.5.2 Tampering — alteração indevida
+### 4.5.2 Tampering — alteração indevida
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
@@ -113,7 +113,7 @@ O campo de prioridade não foi utilizado como critério de seleção, pois todas
 | T09 | 11 | Área autenticada | Dados maliciosos são armazenados ou exibidos na área autenticada sem tratamento adequado. | Execução de scripts na sessão de organizadores, avaliadores ou administradores. |
 | T10 | 114 | MongoDB | Um atacante altera ou corrompe informações armazenadas no banco de dados. | Modificação de inscrições, check-ins, avaliações, resultados ou configurações. |
 
-### 5.5.3 Repudiation — negação de ações
+### 4.5.3 Repudiation — negação de ações
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
@@ -124,14 +124,14 @@ O campo de prioridade não foi utilizado como critério de seleção, pois todas
 | T15 | 72 | Operações administrativas | Um administrador modifica usuários, permissões ou associações sem que exista uma trilha adequada de auditoria. | Impossibilidade de determinar o responsável por uma concessão indevida de acesso. |
 | T16 | 115 | Gravações no MongoDB | Não existem evidências suficientes para confirmar se determinada informação foi gravada ou modificada no banco. | Dificuldade para investigar perda, inconsistência ou alteração de dados. |
 
-### 5.5.4 Information Disclosure — exposição de informações
+### 4.5.4 Information Disclosure — exposição de informações
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
 | T17 | 116 | Comunicação entre API e MongoDB | Um atacante intercepta os dados transmitidos entre a API e o banco de dados. | Exposição de dados pessoais, inscrições, avaliações, tokens ou configurações. |
 | T18 | 123 | Controle de acesso aos dados | Uma falha de autorização permite que informações armazenadas sejam consultadas por um usuário sem permissão. | Exposição de inscrições, dados pessoais, avaliações ou informações de outros eventos. |
 
-### 5.5.5 Denial of Service — indisponibilidade
+### 4.5.5 Denial of Service — indisponibilidade
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
@@ -142,7 +142,7 @@ O campo de prioridade não foi utilizado como critério de seleção, pois todas
 | T23 | 119 | MongoDB | O banco de dados fica indisponível durante operações de leitura ou gravação. | Impossibilidade de consultar eventos, registrar inscrições, check-ins ou avaliações. |
 | T24 | 124 | API REST | A API falha, para ou passa a responder lentamente. | Interrupção das principais funcionalidades da plataforma. |
 
-### 5.5.6 Elevation of Privilege — elevação de privilégio
+### 4.5.6 Elevation of Privilege — elevação de privilégio
 
 | ID | ID da ferramenta | Componente ou ativo | Ameaça identificada | Possível impacto |
 |---|---:|---|---|---|
@@ -153,7 +153,7 @@ O campo de prioridade não foi utilizado como critério de seleção, pois todas
 | T29 | 58 | API REST | Um atacante manipula parâmetros para alterar o fluxo de execução da API. | Desvio das regras de negócio, alteração indevida de dados ou execução de operações não previstas. |
 | T30 | 59 | Área autenticada | Um atacante induz o navegador de um usuário autenticado a enviar uma requisição que altera o estado da plataforma, caso a autenticação utilize credenciais, como cookies, enviadas automaticamente pelo navegador. | Execução de operações em nome do usuário por meio de CSRF. |
 
-## 5.6 Ameaças consideradas mais relevantes
+## 4.6 Ameaças consideradas mais relevantes
 
 Entre as ameaças selecionadas, destacam-se como mais preocupantes:
 
@@ -169,7 +169,7 @@ Entre as ameaças selecionadas, destacam-se como mais preocupantes:
 
 Essas ameaças possuem maior relevância porque podem afetar simultaneamente a confidencialidade, a integridade, a disponibilidade e a rastreabilidade das operações da plataforma.
 
-## 5.7 Arquivos complementares
+## 4.7 Arquivos complementares
 
 Além da análise apresentada nesta seção, estarão disponíveis no repositório os seguintes arquivos complementares:
 
