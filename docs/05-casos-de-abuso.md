@@ -217,3 +217,39 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 5. O atacante utiliza os dados obtidos para facilitar novos ataques ou acessar informações protegidas.
 6. **Impacto esperado:** exposição de dados pessoais, credenciais, tokens ou informações internas da aplicação, facilitando ataques posteriores e comprometendo a segurança do sistema.
 - **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
+
+## 5.5 Casos de abuso — Denial of Service
+
+### CA-D01 - Sobrecarga das rotas públicas e API
+
+- ** Ameaças STRIDE relacionadas:** T12
+- **Ator:** atacante externo utilizando requisições automatizadas.
+- **Objetivo:** tornar as funcionalidades do BAITA EVENTOS lentas ou indisponíveis para usuários legítimos.
+- **Condições necessárias:** as rotas públicas e endpoints da API permitem grande quantidade de requisições sem mecanismos suficientes de limitação ou detecção de comportamento abusivo.
+- **Sequência de ações:**
+1. O atacante identifica rotas públicas ou endpoints da API.
+2. Utiliza um mecanismo automatizado para gerar grande quantidade de requisições.
+3. Envia consultas, inscrições ou tentativas de check-in em grande volume.
+4. O sistema tenta processar as requisições recebidas.
+5. O consumo de recursos aumenta significativamente.
+6. Usuários legítimos encontram dificuldades para utilizar as funcionalidades do sistema.
+**Impacto esperado:** lentidão ou indisponibilidade das funcionalidades da plataforma, principalmente durante períodos de maior demanda, como a realização dos eventos.
+- **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
+
+### CA-D02 - Esgotamento abusivo de vagas
+
+- **Ameaças relacionadas:** T13.
+- **Ator:** atacante externo ou participante mal-intencionado.
+- **Objetivo:** impedir que participantes legítimos consigam se inscrever em um evento com número limitado de vagas.
+- **Condições necessárias:** o sistema permite realizar inscrições ou reservas de vagas sem mecanismos suficientes para impedir reservas falsas ou uso abusivo da capacidade disponível.
+- **Fluxo de abuso:**
+1. O atacante identifica um evento com número limitado de vagas.
+2. Utiliza uma ou mais contas para realizar inscrições ou reservas.
+3. Realiza repetidamente reservas ou inscrições sem intenção legítima de participar.
+4. As vagas disponíveis são ocupadas pelas reservas realizadas pelo atacante.
+5. Participantes legítimos tentam realizar suas inscrições.
+6. O sistema informa que não existem mais vagas disponíveis.
+- **Impacto esperado:** participantes legítimos ficam impedidos de se inscrever, prejudicando a organização do evento e comprometendo a disponibilidade das vagas.
+- **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
+
+
