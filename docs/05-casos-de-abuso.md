@@ -242,7 +242,7 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 - **Ator:** atacante externo ou participante mal-intencionado.
 - **Objetivo:** impedir que participantes legítimos consigam se inscrever em um evento com número limitado de vagas.
 - **Condições necessárias:** o sistema permite realizar inscrições ou reservas de vagas sem mecanismos suficientes para impedir reservas falsas ou uso abusivo da capacidade disponível.
-- **Fluxo de abuso:**
+- **Sequência de ações:**
 1. O atacante identifica um evento com número limitado de vagas.
 2. Utiliza uma ou mais contas para realizar inscrições ou reservas.
 3. Realiza repetidamente reservas ou inscrições sem intenção legítima de participar.
@@ -252,4 +252,37 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 - **Impacto esperado:** participantes legítimos ficam impedidos de se inscrever, prejudicando a organização do evento e comprometendo a disponibilidade das vagas.
 - **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
 
+## 5.6 Casos de abuso — Elevation of Privilege
+
+### CA-E01 - Acesso indevido a funções administrativas
+
+- **Ameaças relacionadas:** T15
+- **Ator:** usuário autenticado mal-intencionado com privilégios inferiores aos administrativos.
+- **Objetivo:** acessar funções administrativas que não deveriam estar disponíveis para seu perfil.
+- **Condições necessárias:** falha na validação de permissões permite que um avaliador, organizador ou outro usuário com menor privilégio acesse endpoints ou operações administrativas.
+- **Sequência de ações:**
+1. O atacante acessa o sistema utilizando sua conta legítima.
+2. Identifica uma funcionalidade destinada exclusivamente a administradores.
+3. Tenta acessar diretamente o endpoint ou operação administrativa.
+4. O sistema não verifica corretamente o papel do usuário no servidor.
+5. O sistema permite a execução da operação.
+6. O atacante utiliza a função administrativa obtida indevidamente.
+- **Impacto esperado:** controle indevido de usuários, papéis ou configurações da instância, além da possibilidade de alterações não autorizadas.
+- **Relação com STRIDE:**  Elevation of Privilege (Ganhar mais poderes no sistema do que deveria ter.)
+
+### CA-E02 - Administração indevida de evento
+
+**Ameaças relacionadas:** T16.
+**Ator:** usuário autenticado mal-intencionado.
+**Objetivo:** administrar um evento ao qual não possui vínculo autorizado.
+**Condições necessárias:** falha de autorização permite que um usuário autenticado acesse operações de gerenciamento de um evento sem verificar corretamente seu papel, vínculo com o evento e instância.
+- **Sequência de ações:**
+1. O atacante autentica-se utilizando uma conta válida.
+2. Identifica um evento administrado por outra equipe.
+3. Obtém ou descobre o identificador do evento.
+4. Envia uma requisição utilizando o identificador do evento.
+5. O sistema verifica apenas a autenticação ou o papel geral do usuário, sem validar seu vínculo com o evento.
+6. O atacante consegue acessar ou executar operações de administração sobre o evento.
+- **Impacto esperado:** alteração ou leitura não autorizada de informações, quebra do isolamento entre equipes e comprometimento do gerenciamento dos eventos.
+- **Relação com STRIDE:** Elevation of Privilege (Ganhar mais poderes no sistema do que deveria ter.)
 
