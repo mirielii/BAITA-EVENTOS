@@ -187,3 +187,33 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 - **Impacto esperado:** perda de rastreabilidade de alterações administrativas críticas; dificuldade para investigar incidentes de segurança e responsabilizar o agente correto.
 - **Relação com STRIDE:** Repudiation (negação de operações administrativas e de banco de dados).
 
+## 5.4 Casos de abuso — Information Disclosure
+
+### CA-I01 - Vazamento de dados dos participantes
+- **Ameaças STRIDE relacionadas:** T10
+- **Ator:** participante mal-intencionado ou usuário autenticado sem autorização.
+- **Objetivo:** obter dados pessoais de participantes de eventos aos quais não possui permissão de acesso.
+- **Condições necessárias:** falha de autorização permite consultar inscrições ou enumerar participantes de outro evento.
+- **Sequência de ações:**
+  1. O atacante acessa o sistema utilizando uma conta válida.
+  2. Identifica uma funcionalidade de consulta de inscrições ou participantes.
+  3. Altera ou utiliza um identificador de evento diferente daquele ao qual possui acesso.
+  4. Envia a requisição para a API.
+  5. O sistema não verifica adequadamente o vínculo do usuário com o evento.
+  6. A API retorna dados de participantes do evento consultado.
+- **Impacto esperado:** exposição de dados pessoais, violação de privacidade e possibilidade de utilização indevida das informações obtidas.
+- **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
+
+### CA-I02 - Exposição de informações em logs e mensagens de erro
+-** Ameaças STRIDE relacionadas:** T11.
+- **Ator:** usuário mal-intencionado ou pessoa que obtém acesso aos logs da aplicação.
+- **Objetivo:** obter informações sensíveis ou detalhes internos do sistema por meio de mensagens de erro e registros da aplicação.
+- **Condições necessárias:** logs ou mensagens de erro podem registrar tokens, credenciais, respostas de formulários ou detalhes internos sem mascaramento ou minimização adequada.
+- **Sequência de ações:**
+1. O atacante realiza uma operação que provoca um erro na aplicação.
+2. O sistema apresenta uma mensagem de erro contendo informações internas ou dados sensíveis.
+3. As informações também podem ser registradas nos logs da aplicação.
+4. O atacante obtém acesso às informações expostas.
+5. O atacante utiliza os dados obtidos para facilitar novos ataques ou acessar informações protegidas.
+6. **Impacto esperado:** exposição de dados pessoais, credenciais, tokens ou informações internas da aplicação, facilitando ataques posteriores e comprometendo a segurança do sistema.
+- **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
