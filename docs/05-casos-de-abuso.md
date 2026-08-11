@@ -205,7 +205,7 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 - **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
 
 ### CA-I02 - Exposição de informações em logs e mensagens de erro
--** Ameaças STRIDE relacionadas:** T11.
+- **Ameaças STRIDE relacionadas:** T11.
 - **Ator:** usuário mal-intencionado ou pessoa que obtém acesso aos logs da aplicação.
 - **Objetivo:** obter informações sensíveis ou detalhes internos do sistema por meio de mensagens de erro e registros da aplicação.
 - **Condições necessárias:** logs ou mensagens de erro podem registrar tokens, credenciais, respostas de formulários ou detalhes internos sem mascaramento ou minimização adequada.
@@ -215,14 +215,14 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 3. As informações também podem ser registradas nos logs da aplicação.
 4. O atacante obtém acesso às informações expostas.
 5. O atacante utiliza os dados obtidos para facilitar novos ataques ou acessar informações protegidas.
-6. **Impacto esperado:** exposição de dados pessoais, credenciais, tokens ou informações internas da aplicação, facilitando ataques posteriores e comprometendo a segurança do sistema.
+- **Impacto esperado:** exposição de dados pessoais, credenciais, tokens ou informações internas da aplicação, facilitando ataques posteriores e comprometendo a segurança do sistema.
 - **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
 
 ## 5.5 Casos de abuso — Denial of Service
 
 ### CA-D01 - Sobrecarga das rotas públicas e API
 
-- ** Ameaças STRIDE relacionadas:** T12
+- **Ameaças STRIDE relacionadas:** T12
 - **Ator:** atacante externo utilizando requisições automatizadas.
 - **Objetivo:** tornar as funcionalidades do BAITA EVENTOS lentas ou indisponíveis para usuários legítimos.
 - **Condições necessárias:** as rotas públicas e endpoints da API permitem grande quantidade de requisições sem mecanismos suficientes de limitação ou detecção de comportamento abusivo.
@@ -233,7 +233,7 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 4. O sistema tenta processar as requisições recebidas.
 5. O consumo de recursos aumenta significativamente.
 6. Usuários legítimos encontram dificuldades para utilizar as funcionalidades do sistema.
-**Impacto esperado:** lentidão ou indisponibilidade das funcionalidades da plataforma, principalmente durante períodos de maior demanda, como a realização dos eventos.
+- **Impacto esperado:** lentidão ou indisponibilidade das funcionalidades da plataforma, principalmente durante períodos de maior demanda, como a realização dos eventos.
 - **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
 
 ### CA-D02 - Esgotamento abusivo de vagas
@@ -272,10 +272,10 @@ Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando
 
 ### CA-E02 - Administração indevida de evento
 
-**Ameaças relacionadas:** T16.
-**Ator:** usuário autenticado mal-intencionado.
-**Objetivo:** administrar um evento ao qual não possui vínculo autorizado.
-**Condições necessárias:** falha de autorização permite que um usuário autenticado acesse operações de gerenciamento de um evento sem verificar corretamente seu papel, vínculo com o evento e instância.
+- **Ameaças relacionadas:** T16.
+- **Ator:** usuário autenticado mal-intencionado.
+- **Objetivo:** administrar um evento ao qual não possui vínculo autorizado.
+- **Condições necessárias:** falha de autorização permite que um usuário autenticado acesse operações de gerenciamento de um evento sem verificar corretamente seu papel, vínculo com o evento e instância.
 - **Sequência de ações:**
 1. O atacante autentica-se utilizando uma conta válida.
 2. Identifica um evento administrado por outra equipe.
