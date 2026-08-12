@@ -6,7 +6,7 @@ A modelagem de ameaças da plataforma BAITA Eventos foi realizada com o auxílio
 
 Inicialmente, foi construído um diagrama de fluxo de dados representando os usuários, os componentes da plataforma, os serviços externos, os fluxos de informações e as fronteiras de confiança.
 
-![Diagrama de fluxo de dados utilizado na modelagem STRIDE](../diagramas/diagrama-stride.png)
+![Diagrama de fluxo de dados utilizado na modelagem STRIDE](../../diagramas/diagrama-stride.png)
 
 *Figura 1 — Diagrama de fluxo de dados da plataforma BAITA Eventos utilizado na modelagem STRIDE.*
 
