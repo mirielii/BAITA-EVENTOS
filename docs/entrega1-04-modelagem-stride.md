@@ -6,6 +6,10 @@ A modelagem de ameaças da plataforma BAITA Eventos foi realizada com o auxílio
 
 Inicialmente, foi construído um diagrama de fluxo de dados representando os usuários, os componentes da plataforma, os serviços externos, os fluxos de informações e as fronteiras de confiança.
 
+![Diagrama de fluxo de dados utilizado na modelagem STRIDE](../diagramas/diagrama-stride.png)
+
+*Figura 1 — Diagrama de fluxo de dados da plataforma BAITA Eventos utilizado na modelagem STRIDE.*
+
 A partir desse diagrama, o Microsoft Threat Modeling Tool gerou 111 ameaças potenciais. Essas ameaças foram utilizadas como ponto de partida para a análise realizada pelo grupo.
 
 Cada ocorrência foi revisada considerando as funcionalidades, os usuários, os ativos e a arquitetura do BAITA Eventos. Foram retiradas ocorrências duplicadas, genéricas ou incompatíveis com a arquitetura. As ameaças mantidas foram reescritas em linguagem natural e contextualizadas para representar situações que poderiam afetar a plataforma.
@@ -114,7 +118,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
-| T116 | Fluxo API REST ↔ MongoDB | Um atacante intercepta informações transmitidas entre a API REST e o MongoDB. | Exposição de dados pessoais, inscrições, avaliações, tokens ou configurações. |
+| T116 | Fluxo API REST → MongoDB | Um atacante intercepta informações transmitidas entre a API REST e o MongoDB. | Exposição de dados pessoais, inscrições, avaliações, tokens ou configurações. |
 | T123 | API REST | Um usuário explora uma falha de autorização para consultar dados de outro evento ou perfil. | Exposição indevida de dados pessoais, inscrições ou avaliações. |
 
 ### 4.5.5 Denial of Service — indisponibilidade
@@ -124,7 +128,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T40 | Fluxo Página pública → API REST | Um atacante envia uma grande quantidade de requisições aos recursos públicos da plataforma. | Indisponibilidade das consultas, inscrições e operações de check-in. |
 | T56 | Fluxo Área autenticada → API REST | Um atacante envia requisições abusivas para degradar ou interromper as operações autenticadas. | Indisponibilidade das funcionalidades utilizadas pelos usuários internos. |
 | T100 | Fluxo API REST → Serviço de e-mail | Um atacante interrompe ou degrada a comunicação entre a API REST e o serviço externo de e-mail. | Indisponibilidade do envio de convites, confirmações e notificações. |
-| T117 | API REST e MongoDB | Um atacante envia requisições abusivas para consumir processamento, memória ou conexões disponíveis. | Indisponibilidade ou degradação do desempenho da plataforma. |
+| T117 | Fluxo API REST → MongoDB | Um atacante envia requisições abusivas para consumir processamento, memória ou conexões disponíveis. | Indisponibilidade ou degradação do desempenho da plataforma. |
 | T119 | MongoDB | Um atacante provoca ou explora a indisponibilidade do banco durante operações de leitura ou gravação. | Indisponibilidade do processamento de inscrições, check-ins e avaliações. |
 | T124 | API REST | Um atacante provoca ou explora falhas que fazem a API REST parar ou responder lentamente. | Indisponibilidade das principais funcionalidades da plataforma. |
 
