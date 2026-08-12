@@ -59,7 +59,7 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 
 ## 📚 Documentação
 
-Toda a documentação do projeto encontra-se na pasta **docs/**. A documentação da Etapa 5 está organizada em **docs/entrega-5/**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
+Toda a documentação do projeto encontra-se na pasta **docs/**. A Etapa 5 está consolidada em **docs/entrega-5/25-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
 
 | Documento | Descrição |
 |-----------|-----------|
