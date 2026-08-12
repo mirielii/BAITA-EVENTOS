@@ -33,10 +33,10 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 .
 ├── README.md
 ├── docs/
-│   ├── 01-descricao-do-sistema.md
+│   ├── entrega1-01-descricao-do-sistema.md
 │   ├── 02-usuarios-ativos.md
 │   ├── 03-arquitetura.md
-│   ├── 04-modelagem-stride.md
+│   ├── entrega1-04-modelagem-stride.md
 │   ├── 05-casos-de-abuso.md
 │   └── 06-consideracoes-finais.md
 ├── diagramas/
@@ -45,7 +45,13 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   ├── fluxo-do-sistema.drawio
 │   ├── fluxo-do-sistema.png
 │   ├── casos-de-abuso.drawio
-│   └── casos-de-abuso.png
+│   ├── casos-de-abuso.png
+│   ├── diagrama-stride.png
+│   └── modelo-de-ameacas.tm7
+├── materiais-complementares/
+│   ├── ameacas-stride-original.csv
+│   ├── ameacas-stride-original.xlsx
+│   └── ameacas-stride-selecionadas.xlsx
 └── imagens/
 ```
 
@@ -53,7 +59,7 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 
 ## 📚 Documentação
 
-Toda a documentação do projeto encontra-se na pasta **docs/**.
+Toda a documentação do projeto encontra-se na pasta **docs/**. A Etapa 5 está consolidada em **docs/entrega-5/25-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
 
 | Documento | Descrição |
 |-----------|-----------|
@@ -87,7 +93,3 @@ Toda a documentação do projeto encontra-se na pasta **docs/**.
 - ⏳ Entrega final
 
 ---
-
-## 📄 Licença
-
-Este projeto possui finalidade exclusivamente acadêmica e foi desenvolvido para a disciplina de **Segurança de Software**.
