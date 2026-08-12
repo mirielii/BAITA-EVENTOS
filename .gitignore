@@ -1,0 +1,27 @@
+# Dependências
+node_modules/
+
+# Arquivos de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Artefatos de build
+dist/
+build/
+coverage/
+*.log
+
+# Relatórios de ferramentas de segurança (salvar apenas os aprovados em evidencias/)
+*.zap
+zap-report.*
+zap-scan-*
+
+# Arquivos do sistema operacional
+Thumbs.db
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
