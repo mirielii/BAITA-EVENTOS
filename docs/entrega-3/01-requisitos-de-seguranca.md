@@ -1,8 +1,8 @@
-# 18. Requisitos de segurança
+# Requisitos de segurança
 
 Os requisitos de segurança foram derivados dos riscos prioritários identificados na Etapa 2. Cada requisito descreve uma condição verificável que a arquitetura da plataforma BAITA Eventos deve atender para reduzir a probabilidade ou o impacto do risco correspondente.
 
-## 18.1 RS01 — Disponibilidade da plataforma
+## RS01 — Disponibilidade da plataforma
 
 | ID | Risco de origem | Requisito de segurança | Critério de verificação |
 | ---- | --------------- | ---------------------- | ----------------------- |
@@ -14,7 +14,7 @@ O requisito foi derivado do R09, classificado como crítico e priorizado em prim
 
 Além disso, a verificação da restauração das cópias de segurança é importante para garantir que o mecanismo de recuperação não exista apenas de forma teórica, mas seja capaz de recuperar os dados necessários em uma situação de falha. Da mesma forma, o monitoramento permite identificar situações anormais e apoiar uma resposta mais rápida a problemas de disponibilidade. Dessa forma, o requisito contribui tanto para a prevenção quanto para a recuperação diante de situações que possam comprometer a continuidade dos serviços da plataforma.
 
-## 18.2 RS02 — Proteção de contas autenticadas
+## RS02 — Proteção de contas autenticadas
 
 | ID | Risco de origem | Requisito de segurança | Critério de verificação |
 |---|---|---|---|
@@ -26,7 +26,7 @@ O requisito foi derivado do R01, classificado como crítico e priorizado em segu
 
 A autenticação será delegada ao Google, reduzindo a necessidade de a plataforma BAITA Eventos armazenar senhas próprias. Entretanto, a plataforma continuará responsável por validar os tokens, proteger e controlar as sessões locais, associar a conta autenticada ao perfil interno adequado e registrar eventos de autenticação para auditoria.
 
-## 18.3 RS03 — Autorização de operações protegidas
+## RS03 — Autorização de operações protegidas
 
 | ID | Risco de origem | Requisito de segurança | Critério de verificação |
 |---|---|---|---|
