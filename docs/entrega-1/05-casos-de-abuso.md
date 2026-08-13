@@ -202,3 +202,221 @@ Para garantir uniformidade na análise e facilitar a comparação entre os difer
 - alteração indevida de dados e configurações.
 
 **Categorias STRIDE relacionadas:** Tampering e Spoofing.
+
+### CA06 — Execução de operações indevidas por meio da API REST
+
+**Ameaças STRIDE relacionadas:** T57, T58, T112 e T114.
+
+**Ator:** atacante externo ou usuário autenticado mal-intencionado.
+
+**Objetivo:** explorar a API REST para executar operações não autorizadas, desviar regras de negócio ou alterar informações processadas pela plataforma.
+
+**Condições necessárias:**
+
+- existência de entradas processadas sem validação suficiente;
+- utilização insegura de dados recebidos em comandos ou operações internas;
+- falhas na autenticação entre a API REST e o MongoDB;
+- permissões excessivas concedidas ao processo da API REST.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica uma rota que recebe parâmetros ou dados controláveis.
+2. Uma entrada especialmente preparada é enviada à API REST.
+3. A API processa o conteúdo sem validação suficiente.
+4. O fluxo normal das regras de negócio é desviado ou um código não autorizado é executado.
+5. O atacante utiliza as permissões da API REST para acessar ou alterar informações.
+6. Dados armazenados no MongoDB podem ser consultados, modificados ou corrompidos.
+
+**Impacto esperado:**
+
+- execução indevida de operações;
+- desvio das regras de negócio;
+- acesso indevido às informações armazenadas;
+- alteração indevida de inscrições, avaliações ou configurações;
+- comprometimento da integridade do banco de dados.
+
+**Categorias STRIDE relacionadas:** Elevation of Privilege, Spoofing e Tampering.
+
+### CA07 — Comprometimento da comunicação entre a API REST e o MongoDB
+
+**Ameaças STRIDE relacionadas:** T113, T116, T121 e T123.
+
+**Ator:** atacante com acesso à rede, à infraestrutura ou a uma conta interna.
+
+**Objetivo:** interceptar, redirecionar ou adulterar a comunicação entre a API REST e o MongoDB para obter informações ou fornecer dados falsos à plataforma.
+
+**Condições necessárias:**
+
+- comunicação desprotegida ou configurada incorretamente;
+- ausência de autenticação adequada entre a API REST e o MongoDB;
+- controle de acesso insuficiente;
+- possibilidade de redirecionar a conexão para um serviço controlado pelo atacante.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica o fluxo de comunicação entre a API REST e o MongoDB.
+2. A comunicação é interceptada ou redirecionada.
+3. Informações transmitidas são capturadas.
+4. Um banco falso pode se apresentar como o MongoDB legítimo.
+5. Dados incorretos ou adulterados são enviados à API REST.
+6. A plataforma utiliza ou apresenta as informações falsas.
+7. Uma falha de autorização também pode permitir a consulta de dados de outros eventos.
+
+**Impacto esperado:**
+
+- exposição de dados pessoais, inscrições e avaliações;
+- alteração indevida das informações processadas;
+- apresentação de informações falsas;
+- comprometimento dos resultados;
+- violação da privacidade dos participantes.
+
+**Categorias STRIDE relacionadas:** Spoofing e Information Disclosure.
+
+### CA08 — Redirecionamento de e-mails e tokens
+
+**Ameaças STRIDE relacionadas:** T98 e T100.
+
+**Ator:** atacante externo com capacidade de interferir na integração com o serviço de e-mail.
+
+**Objetivo:** receber informações, convites ou tokens destinados ao serviço legítimo ou impedir o envio das mensagens.
+
+**Condições necessárias:**
+
+- configuração incorreta do serviço externo;
+- ausência de autenticação adequada do serviço de e-mail;
+- comprometimento das credenciais utilizadas pela API REST;
+- possibilidade de redirecionar ou interromper a comunicação.
+
+**Fluxo de abuso:**
+
+1. O atacante obtém ou modifica informações de configuração da integração.
+2. Um serviço controlado pelo atacante se apresenta como o serviço de e-mail legítimo.
+3. A API REST envia convites, notificações ou tokens ao serviço falso.
+4. O atacante captura as informações transmitidas.
+5. Alternativamente, o atacante interrompe o fluxo para impedir o envio das mensagens.
+6. Convites ou confirmações podem deixar de chegar aos destinatários legítimos.
+
+**Impacto esperado:**
+
+- exposição de convites, notificações ou tokens;
+- acesso indevido a contas internas;
+- indisponibilidade do envio de mensagens;
+- comprometimento do processo de criação ou recuperação de contas.
+
+**Categorias STRIDE relacionadas:** Spoofing e Denial of Service.
+
+### CA09 — Indisponibilidade da plataforma
+
+**Ameaças STRIDE relacionadas:** T40, T56, T100, T117, T119 e T124.
+
+**Ator:** atacante externo ou usuário mal-intencionado.
+
+**Objetivo:** impedir ou degradar o acesso às funcionalidades da plataforma.
+
+**Condições necessárias:**
+
+- ausência ou insuficiência de limites de requisição;
+- recursos computacionais limitados;
+- ausência de mecanismos adequados de monitoramento e recuperação;
+- dependência da API REST, do MongoDB ou do serviço externo de e-mail.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica rotas públicas ou autenticadas que consomem recursos relevantes.
+2. Uma grande quantidade de requisições é enviada simultaneamente.
+3. A API REST passa a consumir processamento, memória ou conexões em excesso.
+4. O MongoDB recebe um volume elevado de operações.
+5. A API REST ou o banco passa a responder lentamente ou fica indisponível.
+6. A comunicação com o serviço de e-mail também pode ser interrompida.
+7. Usuários legítimos deixam de acessar as funcionalidades da plataforma.
+
+**Impacto esperado:**
+
+- indisponibilidade da página pública;
+- indisponibilidade da área autenticada;
+- interrupção de inscrições e check-ins;
+- interrupção das avaliações;
+- indisponibilidade do envio de convites e notificações.
+
+**Categorias STRIDE relacionadas:** Denial of Service.
+
+### CA10 — Execução de operação por CSRF
+
+**Ameaças STRIDE relacionadas:** T12, T18, T59 e T72.
+
+**Ator:** atacante externo.
+
+**Objetivo:** induzir o navegador de um usuário autenticado a executar uma operação sem seu consentimento.
+
+**Condições necessárias:**
+
+- autenticação baseada em cookies ou credenciais enviadas automaticamente pelo navegador;
+- usuário autenticado na plataforma;
+- ausência de proteção contra CSRF;
+- existência de uma operação que altera o estado da plataforma.
+
+**Fluxo de abuso:**
+
+1. O usuário interno entra normalmente na área autenticada.
+2. Durante a sessão, o usuário acessa um endereço ou conteúdo controlado pelo atacante.
+3. O conteúdo malicioso envia uma requisição para a API REST.
+4. O navegador inclui automaticamente as credenciais da sessão.
+5. A API REST interpreta a requisição como uma operação legítima.
+6. Uma configuração, permissão ou associação é alterada sem o consentimento do usuário.
+7. A ausência de registros suficientes pode dificultar a investigação da operação.
+
+**Impacto esperado:**
+
+- execução indevida de operações em nome do usuário;
+- alteração indevida de eventos, permissões ou associações;
+- obtenção indevida de privilégios;
+- perda de rastreabilidade das operações.
+
+**Categorias STRIDE relacionadas:** Elevation of Privilege e Repudiation.
+
+## 5.4 Matriz de rastreabilidade
+
+A matriz relaciona cada ameaça selecionada na modelagem STRIDE aos casos de abuso em que ela está representada.
+
+| Ameaça | Categoria STRIDE | Casos de abuso relacionados |
+|---|---|---|
+| T01 | Tampering | CA05 |
+| T10 | Spoofing | CA01 e CA05 |
+| T11 | Tampering | CA05 |
+| T12 | Elevation of Privilege | CA02 e CA10 |
+| T13 | Spoofing | CA01, CA03 e CA05 |
+| T15 | Elevation of Privilege | CA02 e CA03 |
+| T16 | Spoofing | CA01 e CA05 |
+| T18 | Elevation of Privilege | CA02 e CA10 |
+| T38 | Repudiation | CA04 |
+| T40 | Denial of Service | CA04 e CA09 |
+| T54 | Repudiation | CA01 e CA04 |
+| T56 | Denial of Service | CA09 |
+| T57 | Elevation of Privilege | CA06 |
+| T58 | Elevation of Privilege | CA06 |
+| T59 | Elevation of Privilege | CA10 |
+| T60 | Repudiation | CA02 |
+| T66 | Repudiation | CA02 e CA03 |
+| T72 | Repudiation | CA02 e CA10 |
+| T98 | Spoofing | CA08 |
+| T100 | Denial of Service | CA08 e CA09 |
+| T112 | Spoofing | CA06 |
+| T113 | Spoofing | CA07 |
+| T114 | Tampering | CA03 e CA06 |
+| T115 | Repudiation | CA04 |
+| T116 | Information Disclosure | CA07 |
+| T117 | Denial of Service | CA09 |
+| T119 | Denial of Service | CA09 |
+| T121 | Spoofing | CA07 |
+| T123 | Information Disclosure | CA02 e CA07 |
+| T124 | Denial of Service | CA09 |
+
+A matriz demonstra que todas as 30 ameaças selecionadas na modelagem STRIDE estão representadas em pelo menos um caso de abuso.
+
+## 5.5 Síntese
+
+Os casos de abuso demonstram que as ameaças identificadas podem ser combinadas em cenários com objetivos concretos, como comprometer contas, obter permissões indevidas, alterar avaliações, fraudar inscrições, expor dados ou interromper a plataforma.
+
+Os cenários de maior impacto são aqueles que envolvem contas administrativas, dados pessoais dos participantes, avaliações, resultados, inscrições e disponibilidade durante períodos críticos.
+
+Os casos de abuso servirão como base para a análise de riscos da Etapa 2. Cada caso poderá dar origem a um ou mais riscos, que posteriormente poderão ser avaliados e relacionados às estratégias de tratamento e às funções do NIST CSF.
