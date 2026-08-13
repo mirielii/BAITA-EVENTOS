@@ -1,0 +1,40 @@
+## 9.4 Plano de tratamento
+
+Com base nas estratégias definidas e no mapeamento para o NIST CSF 2.0, foi elaborado um plano de tratamento para os riscos identificados na plataforma BAITA Eventos.
+
+Os controles apresentados foram definidos especificamente para os riscos priorizados na seção anterior e organizados conforme as funções do NIST CSF 2.0.
+
+O plano apresenta os controles propostos, as funções do NIST relacionadas, os responsáveis pela implementação e as evidências que poderão ser utilizadas para verificar a aplicação das medidas.
+
+Como os controles ainda não foram implementados, o plano representa uma proposta inicial. Os responsáveis e as evidências poderão ser ajustados conforme a organização do projeto e a infraestrutura utilizada pela plataforma.
+
+| Risco | Estratégia | Controles propostos | Funções NIST | Responsáveis | Evidências de verificação |
+| ------ | ---------- | ------------------- | ------------ | ------------ | ------------------------- |
+| R01 — Comprometimento de contas autenticadas | Reduzir | Aplicar política de senhas; armazenar senhas com algoritmo de hash adequado; limitar tentativas de autenticação; proteger tokens e sessões; encerrar sessões após período de inatividade; registrar tentativas de acesso. | Govern, Identify, Protect, Detect e Respond | Equipe de desenvolvimento e administração da plataforma | Testes de autenticação; configurações de sessão; registros de tentativas de acesso; resultados de testes de segurança. |
+| R02 — Execução de operações sem autorização | Reduzir | Implementar controle de acesso baseado em perfis; validar permissões na API REST; aplicar o princípio do menor privilégio; impedir que as verificações de autorização dependam apenas da interface; registrar operações administrativas. | Govern, Identify, Protect, Detect e Respond | Equipe de desenvolvimento e administração da plataforma | Matriz de permissões; testes de autorização; registros de operações; resultados de tentativas de acesso com perfis diferentes. |
+| R03 — Manipulação de avaliações | Reduzir | Restringir as avaliações ao avaliador autorizado; registrar alterações de notas, comentários e pareceres; manter histórico das modificações; permitir revisão e restauração de informações alteradas. | Identify, Protect, Detect, Respond e Recover | Equipe de desenvolvimento e responsáveis pelo processo de avaliação | Histórico de alterações; registros de auditoria; testes com diferentes perfis; evidências de restauração de avaliações. |
+| R04 — Fraudes em inscrições e registros de presença | Reduzir | Validar os dados informados; utilizar identificadores ou códigos de confirmação; impedir inscrições ou check-ins duplicados; limitar requisições; detectar comportamentos automatizados ou repetitivos. | Identify, Protect, Detect e Respond | Equipe de desenvolvimento e organizadores dos eventos | Testes de duplicidade; registros de inscrições e check-ins; alertas de excesso de requisições; resultados de testes contra automação. |
+| R05 — Inserção de conteúdo malicioso | Reduzir | Validar entradas no servidor; sanitizar conteúdo; codificar as saídas conforme o contexto; limitar formatos e tamanhos aceitos; aplicar política de segurança de conteúdo quando possível. | Identify, Protect, Detect, Respond e Recover | Equipe de desenvolvimento | Testes de validação e sanitização; resultados de testes de injeção; configuração da política de segurança de conteúdo; registros de entradas rejeitadas. |
+| R06 — Operações indevidas por meio da API REST | Reduzir | Validar tipos, formatos e limites das entradas; aplicar autenticação e autorização em cada endpoint protegido; utilizar listas de operações permitidas; tratar erros sem expor informações internas; limitar requisições. | Govern, Identify, Protect, Detect e Respond | Equipe de desenvolvimento | Documentação dos endpoints; testes automatizados da API; registros de requisições rejeitadas; resultados de testes de segurança. |
+| R07 — Comprometimento da comunicação entre a API REST e o MongoDB | Reduzir | Proteger a comunicação entre os componentes; autenticar a conexão com o banco; restringir o acesso pela rede; armazenar credenciais de forma segura; utilizar conta com permissões mínimas; monitorar falhas de conexão. | Identify, Protect, Detect, Respond e Recover | Equipe de desenvolvimento e responsável pela infraestrutura | Configurações de conexão; regras de rede; permissões da conta do banco; registros de conexão; testes de restauração dos dados. |
+| R08 — Comprometimento de mensagens e tokens de e-mail | Compartilhar | Selecionar e revisar periodicamente o provedor conforme os requisitos de segurança definidos pela plataforma; proteger a comunicação; configurar autenticação do domínio; limitar a validade e o uso dos tokens; evitar dados sensíveis desnecessários; monitorar falhas de envio. | Govern, Identify, Protect, Detect e Respond | Administração da plataforma, equipe de desenvolvimento e provedor de e-mail | Configuração da integração; registros de envio; configurações do domínio; testes de expiração e reutilização dos tokens; contrato, documentação e registros das revisões do provedor. |
+| R09 — Indisponibilidade da plataforma | Reduzir | Aplicar limitação de requisições; monitorar disponibilidade e consumo de recursos; criar cópias de segurança; testar a restauração; estabelecer procedimentos de resposta; implementar, quando viável, mecanismos de redundância para componentes e serviços essenciais. | Govern, Identify, Protect, Detect, Respond e Recover | Equipe de desenvolvimento, responsável pela infraestrutura e administração da plataforma | Painéis e alertas de monitoramento; arquivos de backup; resultados de testes de restauração; registros de incidentes; procedimento de continuidade documentado; evidências da configuração de redundância, quando implementada. |
+| R10 — Execução de operações por CSRF | Reduzir | Utilizar tokens ant-CSRF nas operações que alteram o estado; configurar cookies com `SameSite`, `Secure` e `HttpOnly`; validar a origem ou o referenciador quando adequado; exigir nova confirmação para operações sensíveis. | Identify, Protect, Detect e Respond | Equipe de desenvolvimento | Testes de CSRF; configurações dos cookies; registros de requisições rejeitadas; resultados dos testes das operações autenticadas. |
+
+### 9.4.1 Relação entre estratégia, controles e evidências
+
+Os controles propostos foram definidos de acordo com a estratégia atribuída a cada risco. Nos riscos tratados pela estratégia **Reduzir**, as medidas buscam diminuir a probabilidade de ocorrência, limitar o impacto ou facilitar a detecção, a resposta e a recuperação.
+
+No R08, a estratégia **Compartilhar** envolve a utilização de um provedor de e-mail que atenda aos requisitos definidos pela plataforma e seja submetido a revisões periódicas. Mesmo com o compartilhamento, permanecem controles internos sob responsabilidade do BAITA Eventos, especialmente a proteção dos tokens, a configuração segura da integração e o acompanhamento das falhas de envio.
+
+As evidências de verificação foram definidas para permitir que o grupo confirme futuramente se os controles foram implementados. A simples indicação de um controle no plano não comprova sua eficácia. Essa confirmação dependerá de configurações, registros, documentação e resultados de testes.
+
+### 9.4.2 Responsabilidades
+
+A atribuição dos responsáveis considera três grupos principais:
+
+- **Equipe de desenvolvimento:** responsável pelos controles implementados no código, na API REST, na autenticação, nas sessões e nas validações;
+- **Administração da plataforma:** responsável por políticas, permissões, acompanhamento das operações e decisões relacionadas a fornecedores;
+- **Responsável pela infraestrutura:** responsável por configurações de rede, banco de dados, monitoramento, cópias de segurança, disponibilidade e recuperação.
+
+Nos controles que dependem de serviços externos, o fornecedor também participa do tratamento. Essa participação não elimina a responsabilidade interna de configurar, acompanhar e verificar a integração.
