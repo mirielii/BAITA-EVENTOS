@@ -1,8 +1,8 @@
-# 4. Modelagem de ameaças com STRIDE
+# Modelagem de ameaças com STRIDE
 
 A modelagem de ameaças da plataforma BAITA Eventos foi realizada com o auxílio do Microsoft Threat Modeling Tool e da metodologia STRIDE.
 
-## 4.1 Processo de modelagem
+## 1 Processo de modelagem
 
 Inicialmente, foi construído um diagrama de fluxo de dados representando os usuários, os componentes da plataforma, os serviços externos, os fluxos de informações e as fronteiras de confiança.
 
@@ -16,7 +16,7 @@ Cada ocorrência foi revisada considerando as funcionalidades, os usuários, os 
 
 A parte numérica dos identificadores gerados pelo Microsoft Threat Modeling Tool foi preservada. Neste documento, foi acrescentado o prefixo `T`, de ameaça, para facilitar sua identificação. Identificadores de um único dígito são apresentados com zero à esquerda para manter a padronização visual. Dessa forma, a ameaça `T01` corresponde ao ID `1` da ferramenta.
 
-## 4.2 Componentes considerados
+## 2 Componentes considerados
 
 Para manter a consistência da documentação, foram adotados os seguintes nomes:
 
@@ -34,7 +34,7 @@ Para manter a consistência da documentação, foram adotados os seguintes nomes
 
 Os fluxos entre componentes são representados pelo padrão `Origem → Destino`. Por exemplo, `Fluxo API REST → MongoDB` representa os dados enviados pela API REST para gravação no banco.
 
-## 4.3 Critérios de seleção
+## 3 Critérios de seleção
 
 Uma ameaça foi mantida quando:
 
@@ -62,7 +62,7 @@ Após a revisão, 30 das 111 ameaças geradas foram selecionadas.
 
 A prioridade automática não foi utilizada como critério de seleção, pois as 111 ocorrências foram exportadas pela ferramenta com prioridade `High`.
 
-## 4.4 Convenções utilizadas
+## 4 Convenções utilizadas
 
 As ameaças foram reescritas para representar o contexto do BAITA Eventos, evitando a reprodução literal das descrições genéricas da ferramenta.
 
@@ -79,11 +79,11 @@ Os impactos apresentam primeiro a principal consequência para a plataforma, uti
 
 O campo `ID` utiliza o prefixo `T` seguido pelo identificador numérico original do Microsoft Threat Modeling Tool. O prefixo e o zero utilizado em identificadores de um único dígito são apenas convenções visuais deste documento e não alteram a correspondência com a ferramenta.
 
-## 4.5 Ameaças identificadas
+## 5 Ameaças identificadas
 
 As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STRIDE. As descrições foram contextualizadas para os usuários, os componentes, os fluxos e as funcionalidades do BAITA Eventos.
 
-### 4.5.1 Spoofing — falsificação de identidade
+### 5.1 Spoofing — falsificação de identidade
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
@@ -95,7 +95,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T113 | Fluxo API REST → MongoDB | Um atacante faz um banco falso se apresentar à API REST como o MongoDB legítimo. | Exposição de dados enviados para uma infraestrutura controlada pelo atacante. |
 | T121 | Fluxo MongoDB → API REST | Um atacante faz uma fonte falsa se apresentar como o MongoDB e fornecer informações adulteradas à API REST. | Alteração indevida das informações exibidas e dos resultados processados. |
 
-### 4.5.2 Tampering — alteração indevida
+### 5.2 Tampering — alteração indevida
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
@@ -103,7 +103,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T11 | Área autenticada | Um atacante insere conteúdo malicioso que é posteriormente exibido na área autenticada sem tratamento adequado. | Comprometimento das sessões de organizadores, avaliadores ou administradores. |
 | T114 | MongoDB | Um atacante altera ou corrompe informações armazenadas no banco de dados. | Alteração indevida de inscrições, check-ins, avaliações, resultados ou configurações. |
 
-### 4.5.3 Repudiation — negação de ações
+### 5.3 Repudiation — negação de ações
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
@@ -114,14 +114,14 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T72 | Administrador | Um administrador realiza uma operação sem que seja mantida uma trilha de auditoria suficiente. | Perda de rastreabilidade das alterações de usuários, permissões ou associações. |
 | T115 | MongoDB | Um agente envolvido nega que determinada gravação ou alteração tenha sido realizada no banco de dados. | Perda de rastreabilidade das gravações e alterações de informações. |
 
-### 4.5.4 Information Disclosure — exposição de informações
+### 5.4 Information Disclosure — exposição de informações
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
 | T116 | Fluxo API REST → MongoDB | Um atacante intercepta informações transmitidas entre a API REST e o MongoDB. | Exposição de dados pessoais, inscrições, avaliações, tokens ou configurações. |
 | T123 | API REST | Um usuário explora uma falha de autorização para consultar dados de outro evento ou perfil. | Exposição indevida de dados pessoais, inscrições ou avaliações. |
 
-### 4.5.5 Denial of Service — indisponibilidade
+### 5.5 Denial of Service — indisponibilidade
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
@@ -132,7 +132,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T119 | MongoDB | Um atacante provoca ou explora a indisponibilidade do banco durante operações de leitura ou gravação. | Indisponibilidade do processamento de inscrições, check-ins e avaliações. |
 | T124 | API REST | Um atacante provoca ou explora falhas que fazem a API REST parar ou responder lentamente. | Indisponibilidade das principais funcionalidades da plataforma. |
 
-### 4.5.6 Elevation of Privilege — elevação de privilégio
+### 5.6 Elevation of Privilege — elevação de privilégio
 
 | ID | Componente | Ameaça identificada | Possível impacto |
 |---|---|---|---|
@@ -143,7 +143,7 @@ As ameaças selecionadas foram agrupadas de acordo com as seis categorias do STR
 | T58 | API REST | Um atacante manipula parâmetros para desviar o fluxo de execução das regras de negócio. | Alteração indevida de informações ou execução de operações não autorizadas. |
 | T59 | Área autenticada | Um atacante induz o navegador de um usuário autenticado a executar uma operação sem seu consentimento, caso a autenticação utilize cookies enviados automaticamente. | Execução indevida de operações em nome do usuário por meio de CSRF. |
 
-## 4.6 Síntese da análise
+## 6 Síntese da análise
 
 A revisão demonstrou que as ameaças mais relevantes estão relacionadas ao comprometimento das contas internas, às falhas de autorização entre perfis, à exposição dos dados das inscrições, à alteração de avaliações e à indisponibilidade durante períodos críticos.
 
@@ -151,7 +151,7 @@ A análise também evidenciou a importância dos registros de auditoria. Sem ess
 
 As ameaças selecionadas servirão como base para a elaboração dos casos de abuso e para a análise de riscos da Etapa 2. Os IDs apresentados permitirão relacionar essas análises aos arquivos gerados pelo Microsoft Threat Modeling Tool.
 
-## 4.7 Materiais complementares
+## 7 Materiais complementares
 
 Além desta análise, estão disponíveis no repositório:
 
