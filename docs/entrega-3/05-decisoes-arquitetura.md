@@ -1,8 +1,8 @@
-# 21. Decisões de arquitetura
+# 18.4 Decisões de arquitetura
 
 As decisões de arquitetura foram definidas a partir dos riscos prioritários e dos requisitos de segurança RS01, RS02 e RS03. Elas descrevem como a arquitetura da plataforma BAITA Eventos deverá ser organizada para reduzir os riscos identificados.
 
-## 21.1 Decisão 1 — Utilizar autenticação federada com Google
+## 18.4.1 Decisão 1 — Utilizar autenticação federada com Google
 
 | Elemento | Descrição |
 |---|---|
@@ -14,7 +14,7 @@ As decisões de arquitetura foram definidas a partir dos riscos prioritários e 
 
 A adoção do Google não substitui os controles internos. A API REST continuará responsável por validar a identidade autenticada, controlar a sessão local e aplicar as regras de autorização da plataforma. Participantes continuarão utilizando a página pública e realizando inscrições sem conta.
 
-## 21.2 Decisão 2 — Validar autorização na API REST
+## 18.4.2 Decisão 2 — Validar autorização na API REST
 
 | Elemento | Descrição |
 |---|---|
