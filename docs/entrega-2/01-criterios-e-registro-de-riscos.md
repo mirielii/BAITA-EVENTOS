@@ -1,6 +1,6 @@
-# 8. Análise e priorização dos riscos
+# Análise e priorização dos riscos
 
-## 8.1 Critérios de probabilidade
+## 1 Critérios de probabilidade
 
 A probabilidade representa a possibilidade de um evento de risco ocorrer na plataforma BAITA Eventos, considerando as condições necessárias para sua exploração, a frequência de exposição e o nível de acesso exigido.
 
@@ -11,7 +11,7 @@ A probabilidade representa a possibilidade de um evento de risco ocorrer na plat
 | 3 | Média-alta | O evento é plausível em situações comuns de uso ou ataque à plataforma. |
 | 4 | Alta | O evento pode ocorrer com facilidade, frequência ou em condições previsíveis. |
 
-## 8.2 Critérios de impacto
+## 2 Critérios de impacto
 
 O impacto representa a gravidade das consequências para os usuários, para os dados, para as funcionalidades e para a administração da plataforma caso o evento de risco se concretize.
 
@@ -22,7 +22,7 @@ O impacto representa a gravidade das consequências para os usuários, para os d
 | 3 | Alto | Causa prejuízo relevante aos usuários, ao negócio, à administração ou à privacidade. |
 | 4 | Muito alto | Afeta muitos usuários, operações críticas ou provoca danos graves à plataforma e aos dados. |
 
-## 8.3 Cálculo e classificação
+## 3 Cálculo e classificação
 
 A pontuação de cada risco é calculada pela multiplicação da probabilidade pelo impacto:
 
@@ -35,7 +35,7 @@ A pontuação de cada risco é calculada pela multiplicação da probabilidade p
 | 8 a 11 | Alto |
 | 12 a 16 | Crítico |
 
-## 8.4 Registro de riscos
+## 4 Registro de riscos
 
 Os riscos foram derivados dos casos de abuso. Como cada caso de abuso agrupa ameaças relacionadas, um único risco pode ter origem em mais de uma categoria STRIDE. Os identificadores das ameaças foram mantidos para garantir a rastreabilidade com a modelagem da Etapa 1.
 
@@ -52,7 +52,7 @@ Os riscos foram derivados dos casos de abuso. Como cada caso de abuso agrupa ame
 | R09 | CA09 | Denial of Service — T40, T56, T100, T117, T119 e T124 | Um atacante ou uma falha provoca a indisponibilidade de funcionalidades essenciais da plataforma. | Ausência de proteção adequada contra sobrecarga e dependência da API REST, do MongoDB e do serviço de e-mail. | 4 | 4 | 16 | Crítico |
 | R10 | CA10 | Repudiation e Elevation of Privilege — T12, T18, T59 e T72 | Um atacante induz um usuário autenticado a executar uma operação não intencional por meio de CSRF. | Ausência ou insuficiência de mecanismos de proteção contra requisições forjadas. | 2 | 4 | 8 | Alto |
 
-## 8.5 Justificativas
+## 5 Justificativas
 
 As pontuações foram atribuídas considerando as condições necessárias para a ocorrência de cada evento, a exposição dos componentes, a abrangência dos efeitos e a possibilidade de recuperação. As justificativas a seguir complementam os valores do registro de riscos.
 
