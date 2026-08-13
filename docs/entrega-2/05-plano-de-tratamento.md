@@ -1,4 +1,4 @@
-## 9.4 Plano de tratamento
+# 9.4 Plano de tratamento
 
 Com base nas estratégias definidas e no mapeamento para o NIST CSF 2.0, foi elaborado um plano de tratamento para os riscos identificados na plataforma BAITA Eventos.
 

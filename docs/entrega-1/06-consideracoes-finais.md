@@ -4,7 +4,7 @@
 
 A Etapa 1 teve como objetivo iniciar a análise de segurança do **BAITA EVENTOS** antes da implementação, compreendendo o funcionamento da plataforma e identificando as formas pelas quais ela poderia ser explorada.
 
-A análise partiu da descrição do sistema ([01-descricao-do-sistema](01-descricao-do-sistema.md)), dos usuários e ativos ([02-usuarios-ativos](02-usuarios-ativos.md)) e da visão da arquitetura ([03-arquitetura](03-arquitetura.md)). Sobre essa base, foi realizada a modelagem de ameaças com o **STRIDE** ([04-modelagem-stride](04-modelagem-stride.md)), que selecionou 30 ameaças contextualizadas a partir das 111 geradas automaticamente pelo Microsoft Threat Modeling Tool, e foram elaborados os casos de abuso ([05-casos-de-abuso](05-casos-de-abuso.md)), que representam 18 situações concretas de uso malicioso da plataforma.
+A análise partiu da descrição do sistema ([01-descricao-do-sistema](01-descricao-do-sistema.md)), dos usuários e ativos ([02-usuarios-ativos](02-usuarios-ativos.md)) e da visão da arquitetura ([03-arquitetura](03-arquitetura.md)). Sobre essa base, foi realizada a modelagem de ameaças com o **STRIDE** ([04-modelagem-stride](04-modelagem-stride.md)), que selecionou 30 ameaças contextualizadas a partir das 111 geradas automaticamente pelo Microsoft Threat Modeling Tool, e foram elaborados os casos de abuso ([05-casos-de-abuso](05-casos-de-abuso.md)), que representam 10 situações concretas de uso malicioso da plataforma.
 
 ## 6.2 Ameaças consideradas mais preocupantes
 
@@ -38,12 +38,10 @@ A perda, alteração ou indisponibilização desses ativos gera danos diretos ao
 
 Embora todos os casos de abuso documentados sejam relevantes, alguns possuem potencial de dano mais amplo:
 
-- **CA-S01 — Furto de credenciais de organizador por phishing:** o atacante assume a identidade de um organizador legítimo e pode alterar eventos, inscrições e configurações em nome dele;
-- **CA-I01 — Vazamento de dados dos participantes:** expõe dados pessoais em massa, afetando todos os inscritos de um evento, com danos jurídicos e de reputação;
-- **CA-S03 — Falsificação de identidade de administrador:** permite o controle total da plataforma, incluindo permissões e contas de outros usuários;
-- **CA-E01 — Acesso indevido a funções administrativas:** um usuário de menor privilégio ou externo executa operações administrativas;
-- **CA-T03 — Alteração direta de dados no banco de dados:** corrompe a base de inscrições, avaliações e resultados, comprometendo a integridade de todo o sistema;
-- **CA-D01 — Sobrecarga das rotas públicas e API:** impede inscrições, consultas e check-ins em períodos críticos do evento.
+- **CA01 — Comprometimento de conta interna (furto de credenciais de organizador e falsificação de identidade de administrador):** o atacante assume a identidade de um usuário interno legítimo, podendo alterar eventos, inscrições, configurações e permissões em nome dele;
+- **CA02 — Acesso a operações sem autorização (vazamento de dados dos participantes e acesso a funções administrativas):** expõe dados pessoais em massa, afetando todos os inscritos de um evento, e permite a usuários de menor privilégio executar operações administrativas;
+- **CA06 — Execução de operações indevidas por meio da API REST (alteração direta de dados no banco):** corrompe a base de inscrições, avaliações e resultados, comprometendo a integridade de todo o sistema;
+- **CA09 — Indisponibilidade da plataforma (sobrecarga das rotas públicas e API):** impede inscrições, consultas e check-ins em períodos críticos do evento.
 
 Esses abusos combinam acesso indevido com alteração ou exposição de dados, generalizando o prejuízo para todos os usuários da plataforma.
 
@@ -52,7 +50,6 @@ Esses abusos combinam acesso indevido com alteração ou exposição de dados, g
 As principais dificuldades durante a análise foram:
 
 - **volume da saída automática da ferramenta:** o Microsoft Threat Modeling Tool gerou 111 ameaças; foi necessário revisar manualmente cada uma para selecionar as 30 aplicáveis, exigindo conhecimento da arquitetura para decidir a manutenção ou exclusão;
-- **divergência de numeração entre documentos:** a modelagem revisada utiliza identificadores próprios (T01 a T30), enquanto os casos de abuso referenciam os identificadores originais da ferramenta (ex.: T10, T13, T98). Antes da Etapa 2, o grupo precisa alinhar a numeração para manter a rastreabilidade entre ameaças, riscos e casos de abuso;
 - **colaboração concorrente:** os integrantes trabalharam em branches paralelas editando os mesmos documentos, o que exigiu cuidado na integração e na organização dos arquivos;
 - **escopo da descrição sem implementação:** descrever o funcionamento e os fluxos de um sistema ainda não construído exigiu decisões sobre o que detalhar, evitando especificar requisitos completos;
 - **avaliação da prioridade fornecida pela ferramenta:** todas as ameaças foram exportadas com prioridade `High`, o que não reflete o risco real; a relevância precisou ser analisada pelo grupo com base nos ativos e na arquitetura.

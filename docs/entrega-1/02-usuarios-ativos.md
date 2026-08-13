@@ -1,4 +1,4 @@
-# Usuários, Ativos e Pontos de Interação
+# 3. Usuários, Ativos e Pontos de Interação
 
 ## 1. Usuários do sistema
 

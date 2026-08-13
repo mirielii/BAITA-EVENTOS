@@ -1,4 +1,4 @@
-## 18.2 RS02 — Proteção de contas autenticadas
+# 18.2 RS02 — Proteção de contas autenticadas
 
 | ID | Risco de origem | Requisito de segurança | Critério de verificação |
 |---|---|---|---|

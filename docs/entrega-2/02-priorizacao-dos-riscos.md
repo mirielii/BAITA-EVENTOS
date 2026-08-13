@@ -1,4 +1,4 @@
-## 8.6 Priorização dos riscos
+# 8.6 Priorização dos riscos
 
 A priorização foi realizada considerando a pontuação obtida pela multiplicação entre probabilidade e impacto, em conjunto com o contexto da plataforma BAITA Eventos. Também foram analisados os ativos afetados, a quantidade de usuários potencialmente atingidos, a possibilidade de recuperação, a urgência do tratamento e as dependências entre os componentes.
 
