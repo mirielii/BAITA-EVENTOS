@@ -1,6 +1,6 @@
 # 🎉 BAITA EVENTOS
 
-> Plataforma para Gestão de Eventos
+> Plataforma para Gestão de Eventos!!!
 
 ## 📖 Sobre o projeto
 
@@ -36,7 +36,8 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   ├── entrega1-01-descricao-do-sistema.md
 │   ├── 02-usuarios-ativos.md
 │   ├── 03-arquitetura.md
-│   ├── entrega1-04-modelagem-stride.md
+│   ├── entrega-1/
+│   │   └── 04-modelagem-stride.md
 │   ├── 05-casos-de-abuso.md
 │   └── 06-consideracoes-finais.md
 ├── diagramas/

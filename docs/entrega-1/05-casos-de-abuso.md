@@ -1,288 +1,422 @@
-# 5. Casos de Abuso
+# 5. Casos de abuso
 
-Os casos de abuso apresentados a seguir foram elaborados a partir das ameaças identificadas na modelagem STRIDE (seção 4.5), com o objetivo de representar situações concretas em que um agente malicioso — externo ou interno à plataforma — poderia explorar o BAITA Eventos para obter acesso indevido, adulterar informações, comprometer a disponibilidade do sistema ou dificultar a responsabilização por suas ações.
+## 5.1 Processo de elaboração
 
-Cada caso de abuso está diretamente relacionado a uma ou mais ameaças da modelagem STRIDE e apresenta:
+Os casos de abuso da plataforma BAITA Eventos foram elaborados com base nas ameaças selecionadas na modelagem STRIDE, realizada na Etapa 1 deste trabalho. A modelagem STRIDE fornece uma visão fragmentada das fragilidades da plataforma, na medida em que cada ameaça é analisada isoladamente em relação a um componente, um fluxo de dados ou um ativo específico. Os casos de abuso cumprem um papel complementar a essa análise: eles reconstroem essas ameaças isoladas em cenários de ataque coerentes, descrevendo como um atacante ou um usuário mal-intencionado poderia combinar uma ou mais fragilidades para alcançar um objetivo concreto dentro do sistema.
 
-- o ator malicioso ou agente envolvido;
-- o objetivo do abuso;
-- as condições necessárias para que o abuso ocorra;
-- a sequência de ações realizadas pelo agente;
-- o impacto esperado sobre o sistema, os usuários ou os dados;
-- a relação com a(s) categoria(s) do STRIDE correspondente(s).
+Enquanto a modelagem STRIDE identifica quais ameaças podem afetar os usuários, os componentes e os fluxos da plataforma, os casos de abuso descrevem como esse potencial de ameaça se traduziria em uma ação real, do ponto de vista de quem tenta explorá-la. Essa mudança de perspectiva — da ameaça técnica para o comportamento do atacante — é o que permite avaliar, na Etapa 2, a probabilidade e o impacto de cada risco de forma mais realista, já que se passa a analisar um cenário de exploração completo, e não apenas um evento isolado.
 
-Os casos foram organizados de acordo com as seis categorias do STRIDE, agrupando ameaças relacionadas sempre que representavam a mesma dinâmica de abuso, de modo a evitar repetição excessiva sem perder a rastreabilidade em relação às ameaças originais.
+Para a construção dos casos, optou-se por não elaborar um caso de abuso para cada ameaça individualmente. Essa escolha metodológica se justifica porque diversas ameaças da modelagem STRIDE, embora tecnicamente distintas, convergem para o mesmo objetivo final de um atacante. Por exemplo, ameaças de spoofing de credenciais e ameaças de repúdio de ações podem, juntas, descrever um único cenário de comprometimento de conta. Dessa forma, as ameaças que representam um mesmo objetivo foram agrupadas em cenários concretos, e cada caso de abuso passou a representar um objetivo de ataque, e não uma técnica isolada. Como consequência direta dessa abordagem, um mesmo caso pode estar relacionado a várias ameaças da modelagem STRIDE, e uma mesma ameaça pode participar de mais de um caso, caso ela seja relevante para mais de um objetivo de ataque.
 
-## 5.1 Casos de abuso — Spoofing
+Os identificadores iniciados por `T` correspondem às ameaças documentadas no arquivo de modelagem STRIDE da Etapa 1. Essa relação mantém a rastreabilidade entre os dois documentos, permitindo verificar, a qualquer momento, qual ameaça técnica originou determinado cenário de abuso e evitando que ameaças identificadas anteriormente sejam perdidas ou ignoradas ao longo do trabalho. Essa rastreabilidade servirá como base para a análise de riscos da Etapa 2, na qual cada caso de abuso é convertido em um risco a ser avaliado, priorizado e tratado.
 
-### CA-S01 — Furto de credenciais de organizador por phishing
+## 5.2 Estrutura dos casos
 
-- **Ameaças STRIDE relacionadas:** T10
-- **Ator malicioso:** atacante externo, sem vínculo com a plataforma
-- **Objetivo do abuso:** acessar a área autenticada assumindo a identidade de um organizador legítimo
-- **Condições necessárias:** o organizador possui e-mail e senha que podem ser obtidos por phishing, vazamento em outro serviço ou reutilização de senha; a plataforma não exige verificação adicional além de e-mail e senha no login
-- **Sequência de ações:**
-  1. O atacante envia uma mensagem fraudulenta simulando uma comunicação oficial do BAITA Eventos.
-  2. O organizador informa e-mail e senha em uma página falsa controlada pelo atacante.
-  3. O atacante utiliza as credenciais obtidas para autenticar-se na plataforma real.
-  4. O atacante acessa a área autenticada e realiza operações em nome do organizador.
-- **Impacto esperado:** alteração indevida de eventos, atividades, inscrições e configurações; fraude realizada em nome do organizador legítimo.
-- **Relação com STRIDE:** Spoofing (falsificação de identidade do organizador).
+Para garantir uniformidade na análise e facilitar a comparação entre os diferentes cenários, todos os casos de abuso identificados foram documentados seguindo a mesma estrutura. Cada caso de abuso contém:
 
-### CA-S02 — Uso indevido de conta de avaliador comprometida
+- **identificador**, utilizado para referenciar o caso de forma única ao longo do trabalho, inclusive nas etapas seguintes de análise de riscos e definição de controles;
+- **título**, que resume de forma objetiva o objetivo central do cenário de abuso;
+- **ameaças STRIDE relacionadas**, que indicam quais ameaças da Etapa 1 fundamentam o cenário e garantem a rastreabilidade entre os documentos;
+- **ator responsável pelo abuso**, descrevendo o perfil de quem executaria a ação, podendo se tratar de um atacante externo sem vínculo com a plataforma, de um usuário interno mal-intencionado ou de um usuário legítimo cuja conta foi comprometida;
+- **objetivo do atacante**, isto é, o resultado que o ator pretende alcançar ao explorar as fragilidades descritas;
+- **condições necessárias**, que descrevem os pré-requisitos hipotéticos para que o abuso pudesse ocorrer;
+- **fluxo de abuso**, apresentado como uma sequência lógica e numerada de passos, descrevendo como o cenário se desenvolveria do início até a concretização do objetivo do atacante;
+- **impacto esperado**, relacionando as consequências do abuso para a plataforma, para os usuários e para os processos de negócio envolvidos;
+- **categorias STRIDE relacionadas**, que classificam o caso segundo as categorias do próprio método STRIDE, reforçando a coerência entre a modelagem de ameaças e os cenários descritos.
 
-- **Ameaças STRIDE relacionadas:** T13
-- **Ator malicioso:** atacante externo ou pessoa com acesso não autorizado às credenciais
-- **Objetivo do abuso:** consultar inscrições e registrar avaliações em nome de um avaliador legítimo
-- **Condições necessárias:** as credenciais do avaliador são comprometidas (ex.: senha fraca, dispositivo compartilhado sem logout, credencial reaproveitada de outro sistema)
-- **Sequência de ações:**
-  1. O atacante obtém as credenciais de um avaliador.
-  2. O atacante acessa a área autenticada como se fosse o avaliador.
-  3. O atacante consulta inscrições e dados de participantes aos quais o avaliador tem acesso.
-  4. O atacante registra ou altera notas e observações das atividades avaliadas.
-- **Impacto esperado:** exposição de dados de participantes e alteração indevida de avaliações, prejudicando resultados e classificações.
-- **Relação com STRIDE:** Spoofing (falsificação de identidade do avaliador).
+É importante destacar que as condições necessárias representam situações hipotéticas que poderiam permitir a realização do abuso, descritas com a finalidade de orientar a análise de riscos e a posterior definição de controles. A presença dessas condições no caso não significa que a vulnerabilidade correspondente já exista de fato na plataforma, tampouco que qualquer uma delas tenha sido observada ou testada durante o desenvolvimento do trabalho até este ponto. Da mesma forma, os fluxos de abuso descritos representam sequências plausíveis de exploração sob a ótica do atacante, e não roteiros de teste ou evidências de exploração já realizada, servindo como insumo para a modelagem de riscos e para a definição das práticas de segurança nas etapas seguintes do projeto.
 
-### CA-S03 — Falsificação de identidade de administrador
+## 5.3 Casos de abuso identificados
 
-- **Ameaças STRIDE relacionadas:** T16
-- **Ator malicioso:** atacante externo com alto grau de motivação e conhecimento sobre a plataforma
-- **Objetivo do abuso:** obter controle administrativo total sobre usuários, permissões e associações de organizadores
-- **Condições necessárias:** comprometimento da conta de administrador (credenciais fracas, ausência de autenticação multifator, engenharia social direcionada)
-- **Sequência de ações:**
-  1. O atacante identifica ou engana um administrador para obter suas credenciais.
-  2. O atacante autentica-se na plataforma como administrador.
-  3. O atacante concede permissões administrativas a uma conta sob seu controle.
-  4. O atacante aprova solicitações de associação de organizadores fraudulentos ou altera usuários existentes.
-- **Impacto esperado:** comprometimento total da governança da plataforma, com possibilidade de manter acesso persistente mesmo após a detecção do incidente original.
-- **Relação com STRIDE:** Spoofing (falsificação de identidade do administrador) combinado a Elevation of Privilege.
+### CA01 — Comprometimento de conta interna
 
-### CA-S04 — Serviço de e-mail falso recebendo notificações da API
+**Ameaças STRIDE relacionadas:** T10, T13, T16 e T54.
 
-- **Ameaças STRIDE relacionadas:** T98
-- **Ator malicioso:** atacante capaz de interceptar ou redirecionar tráfego de rede/DNS entre a API e o serviço de e-mail
-- **Objetivo do abuso:** capturar convites, confirmações e notificações destinados a participantes e usuários internos
-- **Condições necessárias:** a integração entre a API REST e o serviço de e-mail não valida adequadamente a identidade do destinatário do lado do serviço externo
-- **Sequência de ações:**
-  1. O atacante posiciona um serviço falso que se apresenta como o serviço de e-mail legítimo.
-  2. A API REST envia convites, confirmações e notificações para o serviço falso.
-  3. O atacante captura tokens de confirmação de inscrição, convites de organizadores e demais informações sensíveis.
-  4. O atacante utiliza os dados capturados para se inscrever em nome de terceiros ou obter acesso indevido.
-- **Impacto esperado:** exposição de dados pessoais e tokens; possibilidade de uso fraudulento de convites de associação de organizadores.
-- **Relação com STRIDE:** Spoofing (falsificação do serviço externo de e-mail).
+**Ator:** atacante externo.
 
-### CA-S05 — Componente falso entre a API REST e o MongoDB
+**Objetivo:** assumir a identidade de um organizador, avaliador ou administrador para acessar a área autenticada e executar operações em nome da vítima.
 
-- **Ameaças STRIDE relacionadas:** T112, T113, T121
-- **Ator malicioso:** atacante com acesso à infraestrutura ou à rede interna da plataforma
-- **Objetivo do abuso:** interpor-se na comunicação entre a API REST e o banco de dados para ler ou adulterar informações
-- **Condições necessárias:** ausência de autenticação mútua entre a API e o banco de dados, permitindo que um componente não autorizado se apresente como um dos dois lados legítimos
-- **Sequência de ações:**
-  1. O atacante posiciona um componente controlado por ele na comunicação entre a API REST e o MongoDB.
-  2. A API REST envia gravações para o componente falso, acreditando se comunicar com o banco legítimo (T113).
-  3. Alternativamente, o componente falso se apresenta ao banco como a API legítima e realiza operações não autorizadas (T112).
-  4. O componente falso também pode devolver à API dados adulterados, fazendo-se passar pelo MongoDB legítimo (T121).
-- **Impacto esperado:** exposição de dados enviados para infraestrutura controlada pelo atacante e alteração indevida das informações exibidas aos usuários (inscrições, avaliações, resultados).
-- **Relação com STRIDE:** Spoofing (falsificação mútua entre componentes de backend).
+**Condições necessárias:**
 
-## 5.2 Casos de abuso — Tampering
+- existência de uma conta interna ativa;
+- obtenção ou descoberta das credenciais da vítima;
+- ausência ou insuficiência de mecanismos adicionais de proteção da autenticação;
+- ausência de bloqueio ou detecção de tentativas suspeitas de acesso.
 
-### CA-T01 — Injeção de conteúdo malicioso via formulário público
+**Fluxo de abuso:**
 
-- **Ameaças STRIDE relacionadas:** T01
-- **Ator malicioso:** atacante externo, sem necessidade de conta na plataforma
-- **Objetivo do abuso:** executar scripts maliciosos no navegador de outros usuários que visualizam os dados enviados
-- **Condições necessárias:** o formulário de inscrição da página pública não trata ou não sanitiza adequadamente o conteúdo enviado pelo participante antes de exibi-lo (ex.: para organizadores e avaliadores)
-- **Sequência de ações:**
-  1. O atacante preenche o formulário de inscrição com conteúdo malicioso em campos de texto livre (ex.: nome ou respostas personalizadas).
-  2. A inscrição é registrada normalmente pela plataforma.
-  3. Um organizador ou avaliador acessa a lista de inscrições na área autenticada.
-  4. O conteúdo malicioso é exibido sem tratamento e é executado no navegador da vítima.
-- **Impacto esperado:** comprometimento da sessão do organizador ou avaliador, podendo levar ao furto de credenciais de sessão ou à execução de ações não autorizadas em nome da vítima.
-- **Relação com STRIDE:** Tampering (alteração indevida do conteúdo exibido).
+1. O atacante identifica o endereço de e-mail de um usuário interno.
+2. As credenciais são obtidas por engenharia social, vazamento, reutilização de senha ou tentativa automatizada.
+3. O atacante acessa a tela de autenticação do BAITA Eventos.
+4. As credenciais comprometidas são informadas.
+5. A plataforma reconhece as credenciais como válidas.
+6. O atacante acessa a área autenticada com as permissões da vítima.
+7. Informações são consultadas ou operações são realizadas em nome do usuário comprometido.
 
-### CA-T02 — Injeção de conteúdo malicioso na área autenticada
+**Impacto esperado:**
 
-- **Ameaças STRIDE relacionadas:** T11
-- **Ator malicioso:** usuário interno mal-intencionado (organizador ou avaliador) ou atacante que já comprometeu uma conta interna
-- **Objetivo do abuso:** comprometer as sessões de outros usuários internos que acessam a mesma área autenticada
-- **Condições necessárias:** campos preenchidos por organizadores ou avaliadores (ex.: descrições de eventos, comentários de avaliação) não são tratados antes de serem exibidos a outros usuários internos
-- **Sequência de ações:**
-  1. O atacante, já autenticado como organizador ou avaliador, insere conteúdo malicioso em um campo da área autenticada.
-  2. O conteúdo é armazenado sem tratamento adequado.
-  3. Outro usuário interno (ex.: administrador) acessa a tela onde o conteúdo é exibido.
-  4. O script malicioso é executado no navegador da vítima.
-- **Impacto esperado:** comprometimento de sessões de organizadores, avaliadores ou administradores, possibilitando escalonamento de acesso dentro da plataforma.
-- **Relação com STRIDE:** Tampering (alteração indevida do conteúdo exibido na área interna).
+- acesso indevido à área autenticada;
+- exposição de inscrições, avaliações ou configurações;
+- alteração indevida de eventos, atividades, usuários ou permissões;
+- perda de rastreabilidade das operações;
+- comprometimento da confiança na plataforma.
 
-### CA-T03 — Alteração direta de dados no banco de dados
+**Categorias STRIDE relacionadas:** Spoofing e Repudiation.
 
-- **Ameaças STRIDE relacionadas:** T114
-- **Ator malicioso:** atacante que obtém acesso não autorizado à infraestrutura do banco de dados
-- **Objetivo do abuso:** corromper ou adulterar diretamente informações armazenadas, contornando as regras de negócio aplicadas pela API
-- **Condições necessárias:** o banco de dados está acessível por algum caminho fora da API REST (ex.: credenciais de infraestrutura mal protegidas, backup exposto, porta de acesso indevidamente aberta)
-- **Sequência de ações:**
-  1. O atacante obtém acesso não autorizado ao MongoDB (ex.: credenciais vazadas, configuração insegura).
-  2. O atacante altera diretamente registros de inscrições, check-ins, avaliações ou configurações.
-  3. A alteração não passa pelas validações normalmente aplicadas pela API REST.
-  4. Usuários e organizadores passam a operar sobre dados incorretos sem perceber a adulteração.
-- **Impacto esperado:** inscrições, check-ins ou resultados incorretos; perda de integridade dos dados de todo um evento, com difícil identificação da origem do problema.
-- **Relação com STRIDE:** Tampering (alteração indevida de dados armazenados).
+### CA02 — Acesso a operações sem autorização
 
-## 5.3 Casos de abuso — Repudiation
+**Ameaças STRIDE relacionadas:** T12, T15, T18, T60, T66, T72 e T123.
 
-### CA-R01 — Inscrições e check-ins realizados sem rastreabilidade suficiente
+**Ator:** usuário interno autenticado.
 
-- **Ameaças STRIDE relacionadas:** T38, T54
-- **Ator malicioso:** participante mal-intencionado ou atacante automatizado
-- **Objetivo do abuso:** realizar inscrições, check-ins ou outras operações e, posteriormente, negar tê-las realizado, ou impedir que a origem da operação seja identificada
-- **Condições necessárias:** a API REST não registra de forma suficiente a origem, o momento e o resultado de operações públicas e autenticadas
-- **Sequência de ações:**
-  1. O agente realiza uma inscrição, um check-in ou outra operação suportada pela API.
-  2. A operação é processada, mas os registros mantidos não permitem identificar com segurança quem a realizou ou quando.
-  3. Um problema é identificado posteriormente (ex.: vaga ocupada indevidamente, check-in duplicado).
-  4. Não é possível comprovar com certeza a autoria da operação, dificultando a investigação.
-- **Impacto esperado:** perda de rastreabilidade de inscrições e confirmações de presença; dificuldade para investigar fraudes ou erros e para responsabilizar o agente correto.
-- **Relação com STRIDE:** Repudiation (negação de ações por ausência de registro adequado).
+**Objetivo:** executar operações de outro perfil ou acessar recursos de eventos aos quais não está vinculado.
 
-### CA-R02 — Organizador nega alteração realizada em um evento
+**Condições necessárias:**
 
-- **Ameaças STRIDE relacionadas:** T60
-- **Ator malicioso:** organizador com acesso legítimo à plataforma
-- **Objetivo do abuso:** realizar uma alteração indevida ou prejudicial em um evento e, posteriormente, negar ter sido o responsável
-- **Condições necessárias:** o sistema não mantém um histórico de alterações suficientemente detalhado (quem alterou, o quê, e quando) associado às operações sobre eventos e atividades
-- **Sequência de ações:**
-  1. O organizador altera informações de um evento ou de uma atividade (ex.: reduz vagas, altera período de inscrição).
-  2. A alteração causa prejuízo a participantes ou a outros organizadores.
-  3. Quando questionado, o organizador nega ter realizado a alteração.
-  4. Sem um registro de auditoria confiável, não é possível comprovar a autoria da mudança.
-- **Impacto esperado:** perda de rastreabilidade das alterações realizadas nos eventos; dificuldade para responsabilizar o organizador e resolver o conflito com participantes prejudicados.
-- **Relação com STRIDE:** Repudiation (negação de autoria de uma alteração).
+- o ator possui uma conta válida;
+- os identificadores dos recursos podem ser observados ou modificados;
+- a API REST não verifica corretamente o perfil, a permissão ou o vínculo com o evento;
+- a interface oculta a funcionalidade, mas a API ainda aceita a requisição.
 
-### CA-R03 — Avaliador nega ter registrado ou alterado uma nota
+**Fluxo de abuso:**
 
-- **Ameaças STRIDE relacionadas:** T66
-- **Ator malicioso:** avaliador com acesso legítimo às atividades sob sua responsabilidade
-- **Objetivo do abuso:** registrar ou alterar uma nota de forma indevida (ex.: favorecendo ou prejudicando um participante) e negar posteriormente a autoria
-- **Condições necessárias:** o sistema não associa de forma confiável cada registro ou alteração de nota ao avaliador responsável, nem mantém histórico das alterações
-- **Sequência de ações:**
-  1. O avaliador registra ou altera uma nota de forma indevida.
-  2. O resultado da avaliação é utilizado para gerar classificações ou premiações.
-  3. Um participante contesta o resultado.
-  4. O avaliador nega ter realizado o registro ou a alteração, e não há evidência suficiente para confirmar ou refutar a negativa.
-- **Impacto esperado:** perda de rastreabilidade das avaliações; contestação de resultados sem possibilidade de resolução; perda de confiança no processo avaliativo.
-- **Relação com STRIDE:** Repudiation (negação de autoria de um registro de avaliação).
+1. O usuário entra normalmente na área autenticada.
+2. Uma requisição utilizada para consultar ou alterar um recurso é identificada.
+3. O usuário modifica o identificador do evento, da atividade, da inscrição ou do usuário.
+4. A requisição alterada é enviada diretamente à API REST.
+5. A API processa a solicitação sem verificar adequadamente o perfil ou o vínculo do usuário.
+6. O usuário consulta informações ou executa uma operação para a qual não possui autorização.
+7. A operação pode ser negada posteriormente caso não exista uma trilha de auditoria suficiente.
 
-### CA-R04 — Operação administrativa ou de banco de dados sem trilha de auditoria
+**Impacto esperado:**
 
-- **Ameaças STRIDE relacionadas:** T72, T115
-- **Ator malicioso:** administrador com acesso legítimo, ou atacante que já obteve acesso administrativo/de infraestrutura (ver CA-S03)
-- **Objetivo do abuso:** realizar uma operação sensível (alteração de usuários, permissões, associações ou gravações diretas no banco) e negar posteriormente sua realização, ou impedir que ela seja atribuída a um responsável
-- **Condições necessárias:** operações administrativas e gravações no banco de dados não geram registros de auditoria completos e protegidos contra alteração
-- **Sequência de ações:**
-  1. O agente realiza uma operação sensível (ex.: concede permissões, aprova uma associação de organizador, altera diretamente um registro no MongoDB).
-  2. A operação não é registrada de forma completa ou os registros gerados podem ser alterados posteriormente.
-  3. A operação causa um problema identificado por outro usuário ou pela equipe responsável.
-  4. O agente nega ter realizado a operação, e a ausência de uma trilha de auditoria confiável impede a comprovação.
-- **Impacto esperado:** perda de rastreabilidade de alterações administrativas críticas; dificuldade para investigar incidentes de segurança e responsabilizar o agente correto.
-- **Relação com STRIDE:** Repudiation (negação de operações administrativas e de banco de dados).
+- acesso indevido a informações de outros eventos;
+- exposição de dados pessoais ou avaliações;
+- alteração indevida de eventos, atividades e permissões;
+- obtenção indevida de privilégios;
+- perda de rastreabilidade das operações.
 
-## 5.4 Casos de abuso — Information Disclosure
+**Categorias STRIDE relacionadas:** Elevation of Privilege, Information Disclosure e Repudiation.
 
-### CA-I01 - Vazamento de dados dos participantes
-- **Ameaças STRIDE relacionadas:** T10
-- **Ator:** participante mal-intencionado ou usuário autenticado sem autorização.
-- **Objetivo:** obter dados pessoais de participantes de eventos aos quais não possui permissão de acesso.
-- **Condições necessárias:** falha de autorização permite consultar inscrições ou enumerar participantes de outro evento.
-- **Sequência de ações:**
-  1. O atacante acessa o sistema utilizando uma conta válida.
-  2. Identifica uma funcionalidade de consulta de inscrições ou participantes.
-  3. Altera ou utiliza um identificador de evento diferente daquele ao qual possui acesso.
-  4. Envia a requisição para a API.
-  5. O sistema não verifica adequadamente o vínculo do usuário com o evento.
-  6. A API retorna dados de participantes do evento consultado.
-- **Impacto esperado:** exposição de dados pessoais, violação de privacidade e possibilidade de utilização indevida das informações obtidas.
-- **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
+### CA03 — Manipulação de avaliações e resultados
 
-### CA-I02 - Exposição de informações em logs e mensagens de erro
-- **Ameaças STRIDE relacionadas:** T11.
-- **Ator:** usuário mal-intencionado ou pessoa que obtém acesso aos logs da aplicação.
-- **Objetivo:** obter informações sensíveis ou detalhes internos do sistema por meio de mensagens de erro e registros da aplicação.
-- **Condições necessárias:** logs ou mensagens de erro podem registrar tokens, credenciais, respostas de formulários ou detalhes internos sem mascaramento ou minimização adequada.
-- **Sequência de ações:**
-1. O atacante realiza uma operação que provoca um erro na aplicação.
-2. O sistema apresenta uma mensagem de erro contendo informações internas ou dados sensíveis.
-3. As informações também podem ser registradas nos logs da aplicação.
-4. O atacante obtém acesso às informações expostas.
-5. O atacante utiliza os dados obtidos para facilitar novos ataques ou acessar informações protegidas.
-- **Impacto esperado:** exposição de dados pessoais, credenciais, tokens ou informações internas da aplicação, facilitando ataques posteriores e comprometendo a segurança do sistema.
-- **Relação com STRIDE:** Information Disclosure (Mostrar informações para quem não deve ver.)
+**Ameaças STRIDE relacionadas:** T13, T15, T66 e T114.
 
-## 5.5 Casos de abuso — Denial of Service
+**Ator:** avaliador, usuário interno mal-intencionado ou atacante com uma conta comprometida.
 
-### CA-D01 - Sobrecarga das rotas públicas e API
+**Objetivo:** alterar notas, comentários, pareceres, resultados ou classificações para beneficiar ou prejudicar participantes.
 
-- **Ameaças STRIDE relacionadas:** T12
-- **Ator:** atacante externo utilizando requisições automatizadas.
-- **Objetivo:** tornar as funcionalidades do BAITA EVENTOS lentas ou indisponíveis para usuários legítimos.
-- **Condições necessárias:** as rotas públicas e endpoints da API permitem grande quantidade de requisições sem mecanismos suficientes de limitação ou detecção de comportamento abusivo.
-- **Sequência de ações:**
-1. O atacante identifica rotas públicas ou endpoints da API.
-2. Utiliza um mecanismo automatizado para gerar grande quantidade de requisições.
-3. Envia consultas, inscrições ou tentativas de check-in em grande volume.
-4. O sistema tenta processar as requisições recebidas.
-5. O consumo de recursos aumenta significativamente.
-6. Usuários legítimos encontram dificuldades para utilizar as funcionalidades do sistema.
-- **Impacto esperado:** lentidão ou indisponibilidade das funcionalidades da plataforma, principalmente durante períodos de maior demanda, como a realização dos eventos.
-- **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
+**Condições necessárias:**
 
-### CA-D02 - Esgotamento abusivo de vagas
+- acesso à área autenticada;
+- ausência de verificação adequada da designação do avaliador;
+- possibilidade de modificar os identificadores das avaliações;
+- ausência de controles de integridade ou registros de auditoria suficientes.
 
-- **Ameaças relacionadas:** T13.
-- **Ator:** atacante externo ou participante mal-intencionado.
-- **Objetivo:** impedir que participantes legítimos consigam se inscrever em um evento com número limitado de vagas.
-- **Condições necessárias:** o sistema permite realizar inscrições ou reservas de vagas sem mecanismos suficientes para impedir reservas falsas ou uso abusivo da capacidade disponível.
-- **Sequência de ações:**
-1. O atacante identifica um evento com número limitado de vagas.
-2. Utiliza uma ou mais contas para realizar inscrições ou reservas.
-3. Realiza repetidamente reservas ou inscrições sem intenção legítima de participar.
-4. As vagas disponíveis são ocupadas pelas reservas realizadas pelo atacante.
-5. Participantes legítimos tentam realizar suas inscrições.
-6. O sistema informa que não existem mais vagas disponíveis.
-- **Impacto esperado:** participantes legítimos ficam impedidos de se inscrever, prejudicando a organização do evento e comprometendo a disponibilidade das vagas.
-- **Relação com STRIDE:** Denial of Service (Derrubar o sistema para o usuário real não usar.)
+**Fluxo de abuso:**
 
-## 5.6 Casos de abuso — Elevation of Privilege
+1. O ator acessa a área autenticada.
+2. O identificador de uma atividade, inscrição ou avaliação é obtido.
+3. O ator modifica a requisição para acessar uma avaliação para a qual não foi designado.
+4. A API REST aceita a solicitação sem verificar corretamente a designação.
+5. Notas, comentários ou pareceres são registrados ou modificados.
+6. Os resultados e as classificações são calculados utilizando as informações alteradas.
+7. O ator pode negar posteriormente a autoria da alteração.
 
-### CA-E01 - Acesso indevido a funções administrativas
+**Impacto esperado:**
 
-- **Ameaças relacionadas:** T15
-- **Ator:** usuário autenticado mal-intencionado com privilégios inferiores aos administrativos.
-- **Objetivo:** acessar funções administrativas que não deveriam estar disponíveis para seu perfil.
-- **Condições necessárias:** falha na validação de permissões permite que um avaliador, organizador ou outro usuário com menor privilégio acesse endpoints ou operações administrativas.
-- **Sequência de ações:**
-1. O atacante acessa o sistema utilizando sua conta legítima.
-2. Identifica uma funcionalidade destinada exclusivamente a administradores.
-3. Tenta acessar diretamente o endpoint ou operação administrativa.
-4. O sistema não verifica corretamente o papel do usuário no servidor.
-5. O sistema permite a execução da operação.
-6. O atacante utiliza a função administrativa obtida indevidamente.
-- **Impacto esperado:** controle indevido de usuários, papéis ou configurações da instância, além da possibilidade de alterações não autorizadas.
-- **Relação com STRIDE:**  Elevation of Privilege (Ganhar mais poderes no sistema do que deveria ter.)
+- alteração indevida de notas, comentários e pareceres;
+- alteração indevida de resultados e classificações;
+- prejuízo aos participantes;
+- perda de rastreabilidade das avaliações;
+- comprometimento da confiança no processo de avaliação.
 
-### CA-E02 - Administração indevida de evento
+**Categorias STRIDE relacionadas:** Spoofing, Tampering, Repudiation e Elevation of Privilege.
 
-- **Ameaças relacionadas:** T16.
-- **Ator:** usuário autenticado mal-intencionado.
-- **Objetivo:** administrar um evento ao qual não possui vínculo autorizado.
-- **Condições necessárias:** falha de autorização permite que um usuário autenticado acesse operações de gerenciamento de um evento sem verificar corretamente seu papel, vínculo com o evento e instância.
-- **Sequência de ações:**
-1. O atacante autentica-se utilizando uma conta válida.
-2. Identifica um evento administrado por outra equipe.
-3. Obtém ou descobre o identificador do evento.
-4. Envia uma requisição utilizando o identificador do evento.
-5. O sistema verifica apenas a autenticação ou o papel geral do usuário, sem validar seu vínculo com o evento.
-6. O atacante consegue acessar ou executar operações de administração sobre o evento.
-- **Impacto esperado:** alteração ou leitura não autorizada de informações, quebra do isolamento entre equipes e comprometimento do gerenciamento dos eventos.
-- **Relação com STRIDE:** Elevation of Privilege (Ganhar mais poderes no sistema do que deveria ter.)
+### CA04 — Fraudes em inscrições e registros de presença
 
+**Ameaças STRIDE relacionadas:** T38, T40, T54 e T115.
+
+**Ator:** participante mal-intencionado ou atacante externo.
+
+**Objetivo:** criar inscrições falsas, ocupar vagas indevidamente ou registrar presenças que não ocorreram.
+
+**Condições necessárias:**
+
+- acesso à página pública do evento;
+- ausência de mecanismos para limitar solicitações automatizadas;
+- códigos de check-in previsíveis, reutilizáveis ou compartilháveis;
+- ausência de registros suficientes sobre inscrições e confirmações de presença.
+
+**Fluxo de abuso:**
+
+1. O atacante acessa a página pública de um evento.
+2. Requisições de inscrição ou check-in são observadas.
+3. O atacante automatiza o envio de formulários ou modifica os dados enviados.
+4. Diversas inscrições são realizadas para ocupar as vagas disponíveis.
+5. Códigos de check-in são testados, reutilizados ou compartilhados.
+6. A API REST registra inscrições ou presenças indevidas.
+7. A ausência de registros suficientes dificulta a identificação da origem das operações.
+
+**Impacto esperado:**
+
+- criação de inscrições falsas ou duplicadas;
+- ocupação indevida de vagas;
+- registro indevido de presença;
+- indisponibilidade das inscrições para participantes legítimos;
+- perda de rastreabilidade dos registros.
+
+**Categorias STRIDE relacionadas:** Repudiation e Denial of Service.
+
+### CA05 — Injeção de conteúdo malicioso
+
+**Ameaças STRIDE relacionadas:** T01, T11, T10, T13 e T16.
+
+**Ator:** participante mal-intencionado ou atacante externo.
+
+**Objetivo:** inserir scripts maliciosos para comprometer a página pública ou a sessão de um usuário interno.
+
+**Condições necessárias:**
+
+- existência de formulários ou campos que aceitam conteúdo fornecido pelos usuários;
+- ausência de validação, sanitização ou codificação adequada;
+- exibição posterior do conteúdo armazenado;
+- acesso de um usuário interno à página que apresenta o conteúdo malicioso.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica um formulário público ou campo de entrada.
+2. Um script malicioso é inserido em um dos campos.
+3. A plataforma armazena ou processa o conteúdo sem tratamento adequado.
+4. O conteúdo é exibido na página pública ou na área autenticada.
+5. O navegador executa o script.
+6. Informações da página ou da sessão podem ser capturadas.
+7. Caso a sessão de um usuário interno seja comprometida, o atacante poderá executar operações em seu nome.
+
+**Impacto esperado:**
+
+- comprometimento da página pública;
+- comprometimento das sessões dos usuários internos;
+- exposição de informações;
+- acesso indevido à área autenticada;
+- alteração indevida de dados e configurações.
+
+**Categorias STRIDE relacionadas:** Tampering e Spoofing.
+
+### CA06 — Execução de operações indevidas por meio da API REST
+
+**Ameaças STRIDE relacionadas:** T57, T58, T112 e T114.
+
+**Ator:** atacante externo ou usuário autenticado mal-intencionado.
+
+**Objetivo:** explorar a API REST para executar operações não autorizadas, desviar regras de negócio ou alterar informações processadas pela plataforma.
+
+**Condições necessárias:**
+
+- existência de entradas processadas sem validação suficiente;
+- utilização insegura de dados recebidos em comandos ou operações internas;
+- falhas na autenticação entre a API REST e o MongoDB;
+- permissões excessivas concedidas ao processo da API REST.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica uma rota que recebe parâmetros ou dados controláveis.
+2. Uma entrada especialmente preparada é enviada à API REST.
+3. A API processa o conteúdo sem validação suficiente.
+4. O fluxo normal das regras de negócio é desviado ou um código não autorizado é executado.
+5. O atacante utiliza as permissões da API REST para acessar ou alterar informações.
+6. Dados armazenados no MongoDB podem ser consultados, modificados ou corrompidos.
+
+**Impacto esperado:**
+
+- execução indevida de operações;
+- desvio das regras de negócio;
+- acesso indevido às informações armazenadas;
+- alteração indevida de inscrições, avaliações ou configurações;
+- comprometimento da integridade do banco de dados.
+
+**Categorias STRIDE relacionadas:** Elevation of Privilege, Spoofing e Tampering.
+
+### CA07 — Comprometimento da comunicação entre a API REST e o MongoDB
+
+**Ameaças STRIDE relacionadas:** T113, T116, T121 e T123.
+
+**Ator:** atacante com acesso à rede, à infraestrutura ou a uma conta interna.
+
+**Objetivo:** interceptar, redirecionar ou adulterar a comunicação entre a API REST e o MongoDB para obter informações ou fornecer dados falsos à plataforma.
+
+**Condições necessárias:**
+
+- comunicação desprotegida ou configurada incorretamente;
+- ausência de autenticação adequada entre a API REST e o MongoDB;
+- controle de acesso insuficiente;
+- possibilidade de redirecionar a conexão para um serviço controlado pelo atacante.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica o fluxo de comunicação entre a API REST e o MongoDB.
+2. A comunicação é interceptada ou redirecionada.
+3. Informações transmitidas são capturadas.
+4. Um banco falso pode se apresentar como o MongoDB legítimo.
+5. Dados incorretos ou adulterados são enviados à API REST.
+6. A plataforma utiliza ou apresenta as informações falsas.
+7. Uma falha de autorização também pode permitir a consulta de dados de outros eventos.
+
+**Impacto esperado:**
+
+- exposição de dados pessoais, inscrições e avaliações;
+- alteração indevida das informações processadas;
+- apresentação de informações falsas;
+- comprometimento dos resultados;
+- violação da privacidade dos participantes.
+
+**Categorias STRIDE relacionadas:** Spoofing e Information Disclosure.
+
+### CA08 — Redirecionamento de e-mails e tokens
+
+**Ameaças STRIDE relacionadas:** T98 e T100.
+
+**Ator:** atacante externo com capacidade de interferir na integração com o serviço de e-mail.
+
+**Objetivo:** receber informações, convites ou tokens destinados ao serviço legítimo ou impedir o envio das mensagens.
+
+**Condições necessárias:**
+
+- configuração incorreta do serviço externo;
+- ausência de autenticação adequada do serviço de e-mail;
+- comprometimento das credenciais utilizadas pela API REST;
+- possibilidade de redirecionar ou interromper a comunicação.
+
+**Fluxo de abuso:**
+
+1. O atacante obtém ou modifica informações de configuração da integração.
+2. Um serviço controlado pelo atacante se apresenta como o serviço de e-mail legítimo.
+3. A API REST envia convites, notificações ou tokens ao serviço falso.
+4. O atacante captura as informações transmitidas.
+5. Alternativamente, o atacante interrompe o fluxo para impedir o envio das mensagens.
+6. Convites ou confirmações podem deixar de chegar aos destinatários legítimos.
+
+**Impacto esperado:**
+
+- exposição de convites, notificações ou tokens;
+- acesso indevido a contas internas;
+- indisponibilidade do envio de mensagens;
+- comprometimento do processo de criação ou recuperação de contas.
+
+**Categorias STRIDE relacionadas:** Spoofing e Denial of Service.
+
+### CA09 — Indisponibilidade da plataforma
+
+**Ameaças STRIDE relacionadas:** T40, T56, T100, T117, T119 e T124.
+
+**Ator:** atacante externo ou usuário mal-intencionado.
+
+**Objetivo:** impedir ou degradar o acesso às funcionalidades da plataforma.
+
+**Condições necessárias:**
+
+- ausência ou insuficiência de limites de requisição;
+- recursos computacionais limitados;
+- ausência de mecanismos adequados de monitoramento e recuperação;
+- dependência da API REST, do MongoDB ou do serviço externo de e-mail.
+
+**Fluxo de abuso:**
+
+1. O atacante identifica rotas públicas ou autenticadas que consomem recursos relevantes.
+2. Uma grande quantidade de requisições é enviada simultaneamente.
+3. A API REST passa a consumir processamento, memória ou conexões em excesso.
+4. O MongoDB recebe um volume elevado de operações.
+5. A API REST ou o banco passa a responder lentamente ou fica indisponível.
+6. A comunicação com o serviço de e-mail também pode ser interrompida.
+7. Usuários legítimos deixam de acessar as funcionalidades da plataforma.
+
+**Impacto esperado:**
+
+- indisponibilidade da página pública;
+- indisponibilidade da área autenticada;
+- interrupção de inscrições e check-ins;
+- interrupção das avaliações;
+- indisponibilidade do envio de convites e notificações.
+
+**Categorias STRIDE relacionadas:** Denial of Service.
+
+### CA10 — Execução de operação por CSRF
+
+**Ameaças STRIDE relacionadas:** T12, T18, T59 e T72.
+
+**Ator:** atacante externo.
+
+**Objetivo:** induzir o navegador de um usuário autenticado a executar uma operação sem seu consentimento.
+
+**Condições necessárias:**
+
+- autenticação baseada em cookies ou credenciais enviadas automaticamente pelo navegador;
+- usuário autenticado na plataforma;
+- ausência de proteção contra CSRF;
+- existência de uma operação que altera o estado da plataforma.
+
+**Fluxo de abuso:**
+
+1. O usuário interno entra normalmente na área autenticada.
+2. Durante a sessão, o usuário acessa um endereço ou conteúdo controlado pelo atacante.
+3. O conteúdo malicioso envia uma requisição para a API REST.
+4. O navegador inclui automaticamente as credenciais da sessão.
+5. A API REST interpreta a requisição como uma operação legítima.
+6. Uma configuração, permissão ou associação é alterada sem o consentimento do usuário.
+7. A ausência de registros suficientes pode dificultar a investigação da operação.
+
+**Impacto esperado:**
+
+- execução indevida de operações em nome do usuário;
+- alteração indevida de eventos, permissões ou associações;
+- obtenção indevida de privilégios;
+- perda de rastreabilidade das operações.
+
+**Categorias STRIDE relacionadas:** Elevation of Privilege e Repudiation.
+
+## 5.4 Matriz de rastreabilidade
+
+A matriz relaciona cada ameaça selecionada na modelagem STRIDE aos casos de abuso em que ela está representada.
+
+| Ameaça | Categoria STRIDE | Casos de abuso relacionados |
+|---|---|---|
+| T01 | Tampering | CA05 |
+| T10 | Spoofing | CA01 e CA05 |
+| T11 | Tampering | CA05 |
+| T12 | Elevation of Privilege | CA02 e CA10 |
+| T13 | Spoofing | CA01, CA03 e CA05 |
+| T15 | Elevation of Privilege | CA02 e CA03 |
+| T16 | Spoofing | CA01 e CA05 |
+| T18 | Elevation of Privilege | CA02 e CA10 |
+| T38 | Repudiation | CA04 |
+| T40 | Denial of Service | CA04 e CA09 |
+| T54 | Repudiation | CA01 e CA04 |
+| T56 | Denial of Service | CA09 |
+| T57 | Elevation of Privilege | CA06 |
+| T58 | Elevation of Privilege | CA06 |
+| T59 | Elevation of Privilege | CA10 |
+| T60 | Repudiation | CA02 |
+| T66 | Repudiation | CA02 e CA03 |
+| T72 | Repudiation | CA02 e CA10 |
+| T98 | Spoofing | CA08 |
+| T100 | Denial of Service | CA08 e CA09 |
+| T112 | Spoofing | CA06 |
+| T113 | Spoofing | CA07 |
+| T114 | Tampering | CA03 e CA06 |
+| T115 | Repudiation | CA04 |
+| T116 | Information Disclosure | CA07 |
+| T117 | Denial of Service | CA09 |
+| T119 | Denial of Service | CA09 |
+| T121 | Spoofing | CA07 |
+| T123 | Information Disclosure | CA02 e CA07 |
+| T124 | Denial of Service | CA09 |
+
+A matriz demonstra que todas as 30 ameaças selecionadas na modelagem STRIDE estão representadas em pelo menos um caso de abuso.
+
+## 5.5 Síntese
+
+Os casos de abuso demonstram que as ameaças identificadas podem ser combinadas em cenários com objetivos concretos, como comprometer contas, obter permissões indevidas, alterar avaliações, fraudar inscrições, expor dados ou interromper a plataforma.
+
+Os cenários de maior impacto são aqueles que envolvem contas administrativas, dados pessoais dos participantes, avaliações, resultados, inscrições e disponibilidade durante períodos críticos.
+
+Os casos de abuso servirão como base para a análise de riscos da Etapa 2. Cada caso poderá dar origem a um ou mais riscos, que posteriormente poderão ser avaliados e relacionados às estratégias de tratamento e às funções do NIST CSF.
