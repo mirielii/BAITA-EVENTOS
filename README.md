@@ -52,8 +52,10 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   │   └── 05-decisoes-arquitetura.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
 │   │   └── 01-contexto-e-testes-autorizacao.md
-│   └── entrega-5/                  # ETAPA 5 — Verificação de vulnerabilidades
-│       └── 01-verificacao-de-vulnerabilidades.md
+│   ├── entrega-5/                  # ETAPA 5 — Verificação de vulnerabilidades
+│   │   └── 01-verificacao-de-vulnerabilidades.md
+│   └── entrega-7/                  # ETAPA 7 — DevSecOps e vídeo final
+│       └── 01-devsecops-e-videofinal.md
 ├── diagramas/
 │   ├── diagrama-stride.png
 │   └── modelo-de-ameacas.tm7
@@ -79,7 +81,7 @@ Os diagramas e os materiais complementares da modelagem STRIDE são produzidos c
 
 ## 📚 Documentação
 
-A documentação de cada etapa do trabalho está organizada na pasta **docs/**, em subpastas `entrega-1` a `entrega-5`. A Etapa 5 está consolidada em **docs/entrega-5/01-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
+A documentação de cada etapa do trabalho está organizada na pasta **docs/**, em subpastas `entrega-1` a `entrega-5` e na subpasta `entrega-7` (DevSecOps e vídeo final). A Etapa 5 está consolidada em **docs/entrega-5/01-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
 
 ### Etapa 1 — Identificação do sistema, STRIDE e casos de abuso
 
@@ -114,7 +116,7 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 | 4 — Código seguro e testes | [docs/entrega-4/](docs/entrega-4/) | ✅ Concluída |
 | 5 — Verificação de vulnerabilidades | [docs/entrega-5/](docs/entrega-5/) + [evidencias/etapa-5/](evidencias/etapa-5/) | ✅ Concluída |
 | 6 — Roteiro de detecção de intrusões | [roteiros/entrega-6/](roteiros/entrega-6/) | ✅ Concluída |
-| 7 — DevSecOps e vídeo final | [roteiros/entrega-7/](roteiros/entrega-7/) | ⏳ Vídeo final pendente |
+| 7 — DevSecOps e vídeo final | [docs/entrega-7/](docs/entrega-7/) | ⏳ Vídeo final pendente |
 
 ---
 
