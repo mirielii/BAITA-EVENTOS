@@ -1,6 +1,6 @@
 # 🎉 BAITA EVENTOS
 
-> Plataforma para Gestão de Eventos
+> Plataforma para Gestão de Eventos!!!
 
 ## 📖 Sobre o projeto
 
