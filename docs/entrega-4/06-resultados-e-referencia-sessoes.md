@@ -1,8 +1,8 @@
-## 21.3 Resultado esperado e referência — Proteção de sessões autenticadas
+# 21.3 Resultado esperado e referência — Proteção de sessões autenticadas
 
 A prática de proteção de sessões autenticadas foi definida para reduzir o risco R01 — Comprometimento de contas autenticadas e atender ao requisito RS02 — Proteção de contas autenticadas.
 
-### 21.3.1 Resultado esperado
+## 21.3.1 Resultado esperado
 
 Após a aplicação do controle proposto, a plataforma deverá criar sessões locais somente para organizadores, avaliadores e administradores que apresentem token Google/OIDC válido.
 
@@ -12,7 +12,7 @@ A sessão local deverá possuir identificador aleatório, prazo de expiração e
 
 Com isso, espera-se reduzir o risco de uso indevido de sessões e impedir que tokens inválidos ou expirados forneçam acesso às funcionalidades autenticadas da plataforma.
 
-### 21.3.2 Referência OWASP utilizada
+## 21.3.2 Referência OWASP utilizada
 
 A prática foi baseada na [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
 
