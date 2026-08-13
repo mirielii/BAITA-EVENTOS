@@ -48,9 +48,7 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   │   ├── 05-plano-de-tratamento.md
 │   │   └── 06-implementacao-e-risco-residual.md
 │   ├── entrega-3/                  # ETAPA 3 — Arquitetura segura
-│   │   ├── 01-requisito-rs01.md
-│   │   ├── 02-requisito-rs02.md
-│   │   ├── 03-requisito-rs03.md
+│   │   ├── 01-requisitos-de-seguranca.md
 │   │   ├── 04-vulnerabilidades-catalogadas.md
 │   │   └── 05-decisoes-arquitetura.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
@@ -114,9 +112,7 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 
 | Documento | Descrição |
 |-----------|-----------|
-| [01 — Requisito RS01](docs/entrega-3/01-requisito-rs01.md) | Requisito de segurança para a disponibilidade da plataforma |
-| [02 — Requisito RS02](docs/entrega-3/02-requisito-rs02.md) | Proteção de contas autenticadas |
-| [03 — Requisito RS03](docs/entrega-3/03-requisito-rs03.md) | Autorização de operações protegidas na API REST |
+| [01 — Requisitos de segurança](docs/entrega-3/01-requisitos-de-seguranca.md) | Requisitos RS01, RS02 e RS03: disponibilidade, proteção de contas e autorização de operações |
 | [04 — Vulnerabilidades catalogadas](docs/entrega-3/04-vulnerabilidades-catalogadas.md) | Mapeamento de vulnerabilidades catalogadas (CWE) para os riscos prioritários |
 | [05 — Decisões de arquitetura](docs/entrega-3/05-decisoes-arquitetura.md) | Arquitetura segura e justificativas |
 
