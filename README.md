@@ -49,6 +49,8 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   ├── entrega-3/                  # ETAPA 3 — Arquitetura segura
 │   │   ├── 01-requisito-rs01.md
 │   │   ├── 02-requisito-rs02.md
+│   │   ├── 03-requisito-rs03.md
+│   │   ├── 04-vulnerabilidades-catalogadas.md
 │   │   └── 05-decisoes-arquitetura.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
 │   │   └── 01-contexto-e-testes-autorizacao.md
@@ -103,6 +105,16 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 | [03 — Estratégias e funções NIST](docs/entrega-2/03-estrategias-e-funcoes-nist.md) | Estratégias de tratamento e funções do NIST CSF 2.0 |
 | [05 — Plano de tratamento](docs/entrega-2/05-plano-de-tratamento.md) | Controles, responsáveis e evidências de verificação |
 | [06 — Implementação e risco residual](docs/entrega-2/06-implementacao-e-risco-residual.md) | Ordem de implementação e estimativa do risco residual |
+
+### Etapa 3 — Arquitetura segura
+
+| Documento | Descrição |
+|-----------|-----------|
+| [01 — Requisito RS01](docs/entrega-3/01-requisito-rs01.md) | Requisito de segurança para a disponibilidade da plataforma |
+| [02 — Requisito RS02](docs/entrega-3/02-requisito-rs02.md) | Proteção de contas autenticadas |
+| [03 — Requisito RS03](docs/entrega-3/03-requisito-rs03.md) | Autorização de operações protegidas na API REST |
+| [04 — Vulnerabilidades catalogadas](docs/entrega-3/04-vulnerabilidades-catalogadas.md) | Mapeamento de vulnerabilidades catalogadas (CWE) para os riscos prioritários |
+| [05 — Decisões de arquitetura](docs/entrega-3/05-decisoes-arquitetura.md) | Arquitetura segura e justificativas |
 
 ---
 
