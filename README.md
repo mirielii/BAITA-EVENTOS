@@ -1,6 +1,6 @@
 # 🎉 BAITA EVENTOS
 
-> Plataforma para Gestão de Eventos!!!
+> Plataforma para Gestão de Eventos
 
 ## 📖 Sobre o projeto
 
@@ -33,43 +33,88 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 .
 ├── README.md
 ├── docs/
-│   ├── entrega1-01-descricao-do-sistema.md
-│   ├── 02-usuarios-ativos.md
-│   ├── 03-arquitetura.md
-│   ├── entrega-1/
-│   │   └── 04-modelagem-stride.md
-│   ├── 05-casos-de-abuso.md
-│   └── 06-consideracoes-finais.md
+│   ├── entrega-1/                  # ETAPA 1 — STRIDE e casos de abuso
+│   │   ├── 01-descricao-do-sistema.md
+│   │   ├── 02-usuarios-ativos.md
+│   │   ├── 03-arquitetura.md
+│   │   ├── 04-modelagem-stride.md
+│   │   ├── 05-casos-de-abuso.md
+│   │   └── 06-consideracoes-finais.md
+│   ├── entrega-2/                  # ETAPA 2 — Análise e tratamento de riscos (NIST CSF)
+│   │   ├── 01-criterios-e-registro-de-riscos.md
+│   │   ├── 02-priorizacao-dos-riscos.md
+│   │   ├── 03-estrategias-e-funcoes-nist.md
+│   │   ├── 05-plano-de-tratamento.md
+│   │   └── 06-implementacao-e-risco-residual.md
+│   ├── entrega-3/                  # ETAPA 3 — Arquitetura segura
+│   │   ├── 01-requisito-rs01.md
+│   │   ├── 02-requisito-rs02.md
+│   │   └── 05-decisoes-arquitetura.md
+│   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
+│   │   └── 01-contexto-e-testes-autorizacao.md
+│   └── entrega-5/                  # ETAPA 5 — Verificação de vulnerabilidades
+│       └── 01-verificacao-de-vulnerabilidades.md
 ├── diagramas/
-│   ├── diagrama-contexto.drawio
-│   ├── diagrama-contexto.png
-│   ├── fluxo-do-sistema.drawio
-│   ├── fluxo-do-sistema.png
-│   ├── casos-de-abuso.drawio
-│   ├── casos-de-abuso.png
 │   ├── diagrama-stride.png
 │   └── modelo-de-ameacas.tm7
+├── evidencias/
+│   └── etapa-5/
+│       ├── 01-resumo-alertas-zap.png
+│       ├── 02-alerta-csp-ausente.png
+│       ├── 03-alerta-cors.png
+│       ├── 04-alerta-timestamp.png
+│       └── relatorio-zap-juice-shop.html
 ├── materiais-complementares/
 │   ├── ameacas-stride-original.csv
 │   ├── ameacas-stride-original.xlsx
 │   └── ameacas-stride-selecionadas.xlsx
-└── imagens/
+└── roteiros/
+    ├── entrega-6/etapa-6-deteccao-de-intrusoes.md
+    └── entrega-7/entrega-7-devsecops-videofinal.md
 ```
+
+Os diagramas e os materiais complementares da modelagem STRIDE são produzidos com o Microsoft Threat Modeling Tool.
 
 ---
 
 ## 📚 Documentação
 
-Toda a documentação do projeto encontra-se na pasta **docs/**. A Etapa 5 está consolidada em **docs/entrega-5/25-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
+A documentação de cada etapa do trabalho está organizada na pasta **docs/**, em subpastas `entrega-1` a `entrega-5`. A Etapa 5 está consolidada em **docs/entrega-5/01-verificacao-de-vulnerabilidades.md**, enquanto as capturas de tela e o relatório do ZAP permanecem em **evidencias/etapa-5/**.
+
+### Etapa 1 — Identificação do sistema, STRIDE e casos de abuso
 
 | Documento | Descrição |
 |-----------|-----------|
-| 01 | Descrição do sistema |
-| 02 | Usuários, ativos e pontos de interação |
-| 03 | Visão geral da arquitetura |
-| 04 | Modelagem de ameaças utilizando STRIDE |
-| 05 | Casos de abuso |
-| 06 | Considerações finais |
+| [01 — Descrição do sistema](docs/entrega-1/01-descricao-do-sistema.md) | Problema resolvido, usuários e funcionalidades |
+| [02 — Usuários, ativos e pontos de interação](docs/entrega-1/02-usuarios-ativos.md) | Perfis, dados sensíveis e recursos a proteger |
+| [03 — Visão geral da arquitetura](docs/entrega-1/03-arquitetura.md) | Componentes, fluxos e fronteiras de confiança |
+| [04 — Modelagem de ameaças (STRIDE)](docs/entrega-1/04-modelagem-stride.md) | 30 ameaças em seis categorias |
+| [05 — Casos de abuso](docs/entrega-1/05-casos-de-abuso.md) | Casos de abuso relacionados ao STRIDE |
+| [06 — Considerações finais](docs/entrega-1/06-consideracoes-finais.md) | Síntese, ativos e dificuldades da análise |
+
+### Etapa 2 — Análise, priorização e tratamento de riscos (NIST CSF)
+
+| Documento | Descrição |
+|-----------|-----------|
+| [01 — Critérios e registro de riscos](docs/entrega-2/01-criterios-e-registro-de-riscos.md) | Critérios de probabilidade/impacto e registro R01–R10 |
+| [02 — Priorização dos riscos](docs/entrega-2/02-priorizacao-dos-riscos.md) | Ordem de prioridade e justificativas |
+| [03 — Estratégias e funções NIST](docs/entrega-2/03-estrategias-e-funcoes-nist.md) | Estratégias de tratamento e funções do NIST CSF 2.0 |
+| [05 — Plano de tratamento](docs/entrega-2/05-plano-de-tratamento.md) | Controles, responsáveis e evidências de verificação |
+| [06 — Implementação e risco residual](docs/entrega-2/06-implementacao-e-risco-residual.md) | Ordem de implementação e estimativa do risco residual |
+
+---
+
+## 📋 Etapas do trabalho
+
+| Etapa | Entregável | Status |
+|-------|-----------|--------|
+| 1 — Modelagem de ameaças (STRIDE) e casos de abuso | [docs/entrega-1/](docs/entrega-1/) | ✅ Concluída |
+| 2 — Análise e tratamento de riscos (NIST CSF) | [docs/entrega-2/](docs/entrega-2/) | ✅ Concluída |
+| 3 — Arquitetura segura | [docs/entrega-3/](docs/entrega-3/) | ✅ Concluída |
+| 4 — Código seguro e testes | [docs/entrega-4/](docs/entrega-4/) | ✅ Concluída |
+| 5 — Verificação de vulnerabilidades | [docs/entrega-5/](docs/entrega-5/) + [evidencias/etapa-5/](evidencias/etapa-5/) | ✅ Concluída |
+| 6 — Roteiro de detecção de intrusões | [roteiros/entrega-6/](roteiros/entrega-6/) | ✅ Concluída |
+| 7 — DevSecOps e vídeo final | [roteiros/entrega-7/](roteiros/entrega-7/) | ⏳ Vídeo final pendente |
 
 ---
 
@@ -79,18 +124,28 @@ Toda a documentação do projeto encontra-se na pasta **docs/**. A Etapa 5 está
 - GitHub
 - Markdown
 - Draw.io
+- Microsoft Threat Modeling Tool
+- OWASP ZAP e OWASP Juice Shop
 - GitHub Projects +
+
+---
+
+## 🤝 Colaboração
+
+Cada integrante do grupo trabalha em sua própria branch e envia as contribuições para a `main` por meio de *pull requests*, preservando a autoria individual de cada alteração no histórico do repositório.
 
 ---
 
 ## 📅 Etapas do projeto
 
 - ✅ Estruturação do repositório
-- ⏳ Descrição do sistema
-- ⏳ Identificação dos usuários e ativos
-- ⏳ Modelagem de ameaças (STRIDE)
-- ⏳ Casos de abuso
-- ⏳ Revisão da documentação
-- ⏳ Entrega final
+- ✅ Etapa 1 — STRIDE e casos de abuso
+- ✅ Etapa 2 — Riscos e plano de tratamento
+- ✅ Etapa 3 — Arquitetura segura
+- ✅ Etapa 4 — Código seguro e testes
+- ✅ Etapa 5 — Verificação de vulnerabilidades
+- ✅ Etapa 6 — Roteiro de detecção de intrusões
+- ⏳ Etapa 7 — Vídeo final
+- ⏳ Revisão final e entrega
 
 ---
