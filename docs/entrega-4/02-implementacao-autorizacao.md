@@ -1,4 +1,4 @@
-## 21.2 Implementação da prática 1 — Controle de autorização na API REST
+# 21.2 Implementação da prática 1 — Controle de autorização na API REST
 
 A implementação abaixo apresenta, em pseudocódigo, como a API REST pode validar a autorização antes de atualizar uma atividade. A solução é baseada nos testes TS01 e TS02 definidos anteriormente.
 
