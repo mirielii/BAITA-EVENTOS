@@ -1,8 +1,8 @@
-# 25. Verificação de vulnerabilidades
+# Verificação de vulnerabilidades
 
 Este documento registra uma única sessão de verificação de vulnerabilidades realizada em ambiente autorizado, as evidências obtidas, a análise de três achados e as respectivas propostas de correção.
 
-## 25.1 Sistema ou ambiente testado
+## 1 Sistema ou ambiente testado
 
 A verificação foi realizada exclusivamente no **OWASP Juice Shop**, uma aplicação deliberadamente vulnerável criada para fins educacionais e de treinamento em segurança.
 
@@ -14,7 +14,7 @@ http://127.0.0.1:3000
 
 O endereço `127.0.0.1` corresponde ao próprio computador utilizado no teste. Portanto, a sessão não envolveu sistemas de terceiros nem aplicações sem autorização.
 
-## 25.2 Ferramenta e configuração básica da sessão
+## 2 Ferramenta e configuração básica da sessão
 
 A ferramenta utilizada foi o **OWASP ZAP 2.17.0** (Zed Attack Proxy), destinada a testes de segurança em aplicações web. Ela foi usada para identificar alertas relacionados a configurações e comportamentos potencialmente inseguros da aplicação executada localmente.
 
@@ -29,7 +29,7 @@ A ferramenta utilizada foi o **OWASP ZAP 2.17.0** (Zed Attack Proxy), destinada 
 
 A varredura foi limitada ao ambiente local autorizado. O ZAP realizou a descoberta de recursos acessíveis a partir da página inicial e executou verificações ativas nesse escopo.
 
-## 25.3 Evidências da execução
+## 3 Evidências da execução
 
 A execução foi registrada por meio do relatório HTML exportado pelo OWASP ZAP e de capturas de tela dos alertas selecionados. Todos os arquivos estão em `evidencias/etapa-5/`.
 
@@ -55,9 +55,9 @@ As evidências abaixo demonstram que a varredura foi realizada exclusivamente em
 
 ![Alerta sobre divulgação de timestamp](../../evidencias/etapa-5/04-alerta-timestamp.png)
 
-## 25.4 Análise dos alertas e achados
+## 4 Análise dos alertas e achados
 
-### 25.4.1 A01 — Content Security Policy (CSP) Header Not Set
+### 4.1 A01 — Content Security Policy (CSP) Header Not Set
 
 | Campo | Análise |
 |---|---|
@@ -71,7 +71,7 @@ As evidências abaixo demonstram que a varredura foi realizada exclusivamente em
 
 A CSP não substitui a validação de entradas e a codificação segura das saídas. Ela funciona como uma camada adicional de proteção, reduzindo o impacto de possíveis falhas de injeção que afetem o navegador.
 
-### 25.4.2 A02 — Cross-Domain Misconfiguration
+### 4.2 A02 — Cross-Domain Misconfiguration
 
 | Campo | Análise |
 |---|---|
@@ -85,7 +85,7 @@ A CSP não substitui a validação de entradas e a codificação segura das saí
 
 O alerta deve ser interpretado conforme o contexto. O relatório indica que navegadores não permitem que domínios arbitrários leiam respostas de APIs autenticadas apenas com essa configuração, o que reduz parte do risco. Ainda assim, a política CORS ampla não deve ser adotada por padrão em serviços que possam expor informações sensíveis.
 
-### 25.4.3 A03 — Timestamp Disclosure - Unix
+### 4.3 A03 — Timestamp Disclosure - Unix
 
 | Campo | Análise |
 |---|---|
@@ -99,7 +99,7 @@ O alerta deve ser interpretado conforme o contexto. O relatório indica que nave
 
 Esse alerta não comprova, por si só, uma vulnerabilidade crítica. A decisão de corrigir ou aceitar o risco depende da necessidade funcional da data exposta e da existência de outras informações que possam aumentar seu impacto.
 
-## 25.5 Limitações e revisão dos resultados
+## 5 Limitações e revisão dos resultados
 
 A verificação foi realizada em uma única sessão automatizada do OWASP ZAP, limitada ao OWASP Juice Shop executado localmente. Portanto, os resultados representam os alertas identificados nesse cenário específico e não comprovam, por si só, a exploração completa de vulnerabilidades.
 
