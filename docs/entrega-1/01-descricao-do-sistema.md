@@ -1,4 +1,4 @@
-# 2. Descrição do Sistema
+# Descrição do Sistema
 
 ## 1. Visão geral
 
