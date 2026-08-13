@@ -1,4 +1,4 @@
-## 21.2 Implementação da prática 2 — Proteção de sessões autenticadas
+# 21.2 Implementação da prática 2 — Proteção de sessões autenticadas
 
 A implementação abaixo apresenta, em pseudocódigo, como a plataforma pode validar o token fornecido pelo Google e criar uma sessão local protegida. A solução é baseada nos testes TS03 e TS04 definidos anteriormente.
 

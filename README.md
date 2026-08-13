@@ -44,6 +44,7 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   │   ├── 01-criterios-e-registro-de-riscos.md
 │   │   ├── 02-priorizacao-dos-riscos.md
 │   │   ├── 03-estrategias-e-funcoes-nist.md
+│   │   ├── 04-mapeamento-nist.md
 │   │   ├── 05-plano-de-tratamento.md
 │   │   └── 06-implementacao-e-risco-residual.md
 │   ├── entrega-3/                  # ETAPA 3 — Arquitetura segura
@@ -53,7 +54,9 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   │   ├── 04-vulnerabilidades-catalogadas.md
 │   │   └── 05-decisoes-arquitetura.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
-│   │   └── 01-contexto-e-testes-autorizacao.md
+│   │   ├── 01-contexto-e-testes-autorizacao.md
+│   │   ├── 02-implementacao-autorizacao.md
+│   │   └── 03-resultados-e-referencia-autorizacao.md
 │   ├── entrega-5/                  # ETAPA 5 — Verificação de vulnerabilidades
 │   │   └── 01-verificacao-de-vulnerabilidades.md
 │   └── entrega-7/                  # ETAPA 7 — DevSecOps e vídeo final
@@ -103,6 +106,7 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 | [01 — Critérios e registro de riscos](docs/entrega-2/01-criterios-e-registro-de-riscos.md) | Critérios de probabilidade/impacto e registro R01–R10 |
 | [02 — Priorização dos riscos](docs/entrega-2/02-priorizacao-dos-riscos.md) | Ordem de prioridade e justificativas |
 | [03 — Estratégias e funções NIST](docs/entrega-2/03-estrategias-e-funcoes-nist.md) | Estratégias de tratamento e funções do NIST CSF 2.0 |
+| [04 — Mapeamento NIST](docs/entrega-2/04-mapeamento-nist.md) | Mapeamento dos riscos R01–R10 para as funções do NIST CSF 2.0 |
 | [05 — Plano de tratamento](docs/entrega-2/05-plano-de-tratamento.md) | Controles, responsáveis e evidências de verificação |
 | [06 — Implementação e risco residual](docs/entrega-2/06-implementacao-e-risco-residual.md) | Ordem de implementação e estimativa do risco residual |
 
@@ -115,6 +119,14 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 | [03 — Requisito RS03](docs/entrega-3/03-requisito-rs03.md) | Autorização de operações protegidas na API REST |
 | [04 — Vulnerabilidades catalogadas](docs/entrega-3/04-vulnerabilidades-catalogadas.md) | Mapeamento de vulnerabilidades catalogadas (CWE) para os riscos prioritários |
 | [05 — Decisões de arquitetura](docs/entrega-3/05-decisoes-arquitetura.md) | Arquitetura segura e justificativas |
+
+### Etapa 4 — Código seguro e testes
+
+| Documento | Descrição |
+|-----------|-----------|
+| [01 — Contexto e testes de autorização](docs/entrega-4/01-contexto-e-testes-autorizacao.md) | Testes TS01/TS02 definidos antes da implementação |
+| [02 — Implementação da autorização](docs/entrega-4/02-implementacao-autorizacao.md) | Pseudocódigo do controle de autorização na API REST |
+| [03 — Resultado esperado e referência](docs/entrega-4/03-resultados-e-referencia-autorizacao.md) | Resultado esperado e OWASP Authorization Cheat Sheet |
 
 ---
 

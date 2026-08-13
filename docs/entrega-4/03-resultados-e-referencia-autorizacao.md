@@ -1,8 +1,8 @@
-## 21.3 Resultado esperado e referência — Controle de autorização
+# 21.3 Resultado esperado e referência — Controle de autorização
 
 A prática de controle de autorização na API REST foi definida para reduzir o risco R02 — Execução de operações sem autorização e atender ao requisito RS03 — Autorização de operações protegidas.
 
-### 21.3.1 Resultado esperado
+## 21.3.1 Resultado esperado
 
 Após a aplicação do controle proposto, a API REST deverá permitir operações protegidas somente quando o usuário:
 
@@ -14,7 +14,7 @@ Chamadas diretas à API REST realizadas por usuários sem permissão deverão se
 
 Com isso, espera-se reduzir a possibilidade de acesso indevido a eventos, atividades, avaliações, inscrições e funcionalidades administrativas.
 
-### 21.3.2 Referência OWASP utilizada
+## 21.3.2 Referência OWASP utilizada
 
 A prática foi baseada na [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).
 

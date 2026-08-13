@@ -1,10 +1,10 @@
-## 1.3 Mapeamento dos riscos para o NIST CSF 2.0
+# 9.3 Mapeamento dos riscos para o NIST CSF 2.0
 
 O mapeamento foi realizado de acordo com os resultados de segurança necessários para tratar cada risco. As funções não foram marcadas automaticamente: cada associação considera as características do evento, os componentes afetados e as medidas necessárias para prevenção, detecção, resposta ou recuperação.
 
 Nem todos os riscos exigem restauração de dados ou serviços. Por isso, a função **Recover** foi associada apenas aos cenários em que essa necessidade foi identificada. Da mesma forma, a função **Govern** foi relacionada somente aos riscos que dependem diretamente de políticas, responsabilidades, requisitos institucionais ou gestão de fornecedores.
 
-### 1.3.1 Tabela de mapeamento
+## 9.3.1 Tabela de mapeamento
 
 | Risco | Govern | Identify | Protect | Detect | Respond | Recover |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -19,9 +19,9 @@ Nem todos os riscos exigem restauração de dados ou serviços. Por isso, a fun�
 | R09 | X | X | X | X | X | X |
 | R10 |  | X | X | X | X |  |
 
-### 1.3.2 Justificativas do mapeamento
+## 9.3.2 Justificativas do mapeamento
 
-#### R01 — Comprometimento de contas autenticadas
+### R01 — Comprometimento de contas autenticadas
 
 - **Govern:** definição de políticas de autenticação e responsabilidades sobre contas privilegiadas;
 - **Identify:** identificação das contas, permissões e pontos de autenticação expostos;
@@ -31,7 +31,7 @@ Nem todos os riscos exigem restauração de dados ou serviços. Por isso, a fun�
 
 A função Recover não foi associada diretamente porque o tratamento principal está concentrado na prevenção, na detecção e na contenção do acesso indevido.
 
-#### R02 — Execução de operações sem autorização
+### R02 — Execução de operações sem autorização
 
 - **Govern:** definição de papéis e regras de autorização;
 - **Identify:** identificação das operações e permissões associadas a cada perfil;
@@ -41,7 +41,7 @@ A função Recover não foi associada diretamente porque o tratamento principal 
 
 A função Recover não foi associada porque a resposta principal consiste em interromper o acesso indevido e corrigir as permissões. Caso uma operação provoque alteração de dados, a recuperação deverá ser considerada no tratamento do evento específico.
 
-#### R03 — Manipulação de avaliações
+### R03 — Manipulação de avaliações
 
 - **Identify:** identificação das avaliações, dos usuários autorizados e das operações sensíveis;
 - **Protect:** controle de acesso e validação das alterações;
@@ -51,7 +51,7 @@ A função Recover não foi associada porque a resposta principal consiste em in
 
 A função Govern não foi marcada porque o tratamento está concentrado na proteção técnica e operacional do processo de avaliação, sem exigir uma decisão adicional de governança para este cenário.
 
-#### R04 — Fraudes em inscrições e registros de presença
+### R04 — Fraudes em inscrições e registros de presença
 
 - **Identify:** identificação das funcionalidades públicas e dos padrões esperados de utilização;
 - **Protect:** validação das solicitações e adoção de mecanismos contra automação;
@@ -60,7 +60,7 @@ A função Govern não foi marcada porque o tratamento está concentrado na prot
 
 A função Recover não foi associada diretamente porque os registros fraudulentos podem ser tratados durante a resposta, por meio de sua identificação e correção. A função Govern também não foi considerada essencial para o tratamento inicial.
 
-#### R05 — Inserção de conteúdo malicioso
+### R05 — Inserção de conteúdo malicioso
 
 - **Identify:** identificação dos campos de entrada e dos locais em que o conteúdo é apresentado;
 - **Protect:** validação, sanitização e codificação segura das entradas e saídas;
@@ -70,7 +70,7 @@ A função Recover não foi associada diretamente porque os registros fraudulent
 
 A função Recover foi incluída porque a exploração pode alterar conteúdo apresentado pela plataforma ou comprometer sessões e informações, exigindo restauração após a contenção.
 
-#### R06 — Operações indevidas por meio da API REST
+### R06 — Operações indevidas por meio da API REST
 
 - **Govern:** definição de requisitos de segurança para o desenvolvimento e a manutenção da API REST;
 - **Identify:** identificação dos endpoints, entradas e regras de negócio críticas;
@@ -80,7 +80,7 @@ A função Recover foi incluída porque a exploração pode alterar conteúdo ap
 
 A função Recover não foi associada diretamente porque os resultados principais esperados estão relacionados à prevenção, à identificação e à interrupção das operações indevidas.
 
-#### R07 — Comprometimento da comunicação entre a API REST e o MongoDB
+### R07 — Comprometimento da comunicação entre a API REST e o MongoDB
 
 - **Identify:** identificação dos componentes, das conexões e dos dados transmitidos;
 - **Protect:** proteção da comunicação e restrição do acesso de rede;
@@ -90,7 +90,7 @@ A função Recover não foi associada diretamente porque os resultados principai
 
 A função Recover foi incluída porque a alteração das informações transmitidas ou armazenadas pode exigir restauração. A função Govern não foi marcada porque as medidas principais são técnicas e operacionais.
 
-#### R08 — Comprometimento de mensagens e tokens de e-mail
+### R08 — Comprometimento de mensagens e tokens de e-mail
 
 - **Govern:** definição de requisitos de segurança e responsabilidades para o provedor de e-mail;
 - **Identify:** identificação dos dados, tokens e dependências envolvidos no envio;
@@ -100,7 +100,7 @@ A função Recover foi incluída porque a alteração das informações transmit
 
 A função Govern foi incluída porque o risco envolve um serviço externo e exige a definição das responsabilidades da plataforma e do provedor. Recover não foi marcada porque o tratamento principal consiste em invalidar tokens, conter o incidente e restabelecer a comunicação.
 
-#### R09 — Indisponibilidade da plataforma
+### R09 — Indisponibilidade da plataforma
 
 - **Govern:** definição de responsabilidades, critérios de disponibilidade e requisitos de continuidade;
 - **Identify:** identificação dos componentes críticos e de suas dependências;
@@ -120,7 +120,7 @@ O R09 está relacionado às seis funções porque envolve gestão da continuidad
 
 A função Govern não foi considerada necessária para o tratamento inicial, pois existem mecanismos técnicos bem definidos para reduzir o risco. Recover também não foi marcada porque a resposta principal está concentrada na contenção da sessão e das operações forjadas.
 
-### 1.3.3 Síntese do mapeamento
+## 9.3.3 Síntese do mapeamento
 
 As funções **Identify**, **Protect**, **Detect** e **Respond** aparecem com maior frequência porque os riscos analisados exigem conhecimento dos componentes envolvidos, aplicação de salvaguardas, monitoramento de atividades suspeitas e capacidade de contenção.
 
