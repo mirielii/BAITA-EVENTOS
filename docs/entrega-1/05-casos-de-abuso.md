@@ -1,6 +1,6 @@
-# 5. Casos de abuso
+#  Casos de abuso
 
-## 5.1 Processo de elaboração
+## 1 Processo de elaboração
 
 Os casos de abuso da plataforma BAITA Eventos foram elaborados com base nas ameaças selecionadas na modelagem STRIDE, realizada na Etapa 1 deste trabalho. A modelagem STRIDE fornece uma visão fragmentada das fragilidades da plataforma, na medida em que cada ameaça é analisada isoladamente em relação a um componente, um fluxo de dados ou um ativo específico. Os casos de abuso cumprem um papel complementar a essa análise: eles reconstroem essas ameaças isoladas em cenários de ataque coerentes, descrevendo como um atacante ou um usuário mal-intencionado poderia combinar uma ou mais fragilidades para alcançar um objetivo concreto dentro do sistema.
 
@@ -10,7 +10,7 @@ Para a construção dos casos, optou-se por não elaborar um caso de abuso para 
 
 Os identificadores iniciados por `T` correspondem às ameaças documentadas no arquivo de modelagem STRIDE da Etapa 1. Essa relação mantém a rastreabilidade entre os dois documentos, permitindo verificar, a qualquer momento, qual ameaça técnica originou determinado cenário de abuso e evitando que ameaças identificadas anteriormente sejam perdidas ou ignoradas ao longo do trabalho. Essa rastreabilidade servirá como base para a análise de riscos da Etapa 2, na qual cada caso de abuso é convertido em um risco a ser avaliado, priorizado e tratado.
 
-## 5.2 Estrutura dos casos
+## 2 Estrutura dos casos
 
 Para garantir uniformidade na análise e facilitar a comparação entre os diferentes cenários, todos os casos de abuso identificados foram documentados seguindo a mesma estrutura. Cada caso de abuso contém:
 
@@ -26,7 +26,7 @@ Para garantir uniformidade na análise e facilitar a comparação entre os difer
 
 É importante destacar que as condições necessárias representam situações hipotéticas que poderiam permitir a realização do abuso, descritas com a finalidade de orientar a análise de riscos e a posterior definição de controles. A presença dessas condições no caso não significa que a vulnerabilidade correspondente já exista de fato na plataforma, tampouco que qualquer uma delas tenha sido observada ou testada durante o desenvolvimento do trabalho até este ponto. Da mesma forma, os fluxos de abuso descritos representam sequências plausíveis de exploração sob a ótica do atacante, e não roteiros de teste ou evidências de exploração já realizada, servindo como insumo para a modelagem de riscos e para a definição das práticas de segurança nas etapas seguintes do projeto.
 
-## 5.3 Casos de abuso identificados
+## 3 Casos de abuso identificados
 
 ### CA01 — Comprometimento de conta interna
 
@@ -374,7 +374,7 @@ Para garantir uniformidade na análise e facilitar a comparação entre os difer
 
 **Categorias STRIDE relacionadas:** Elevation of Privilege e Repudiation.
 
-## 5.4 Matriz de rastreabilidade
+## 4 Matriz de rastreabilidade
 
 A matriz relaciona cada ameaça selecionada na modelagem STRIDE aos casos de abuso em que ela está representada.
 
@@ -413,7 +413,7 @@ A matriz relaciona cada ameaça selecionada na modelagem STRIDE aos casos de abu
 
 A matriz demonstra que todas as 30 ameaças selecionadas na modelagem STRIDE estão representadas em pelo menos um caso de abuso.
 
-## 5.5 Síntese
+## 5 Síntese
 
 Os casos de abuso demonstram que as ameaças identificadas podem ser combinadas em cenários com objetivos concretos, como comprometer contas, obter permissões indevidas, alterar avaliações, fraudar inscrições, expor dados ou interromper a plataforma.
 

@@ -1,12 +1,12 @@
-# 6. Considerações Finais
+# Considerações Finais
 
-## 6.1 Síntese da análise
+## 1 Síntese da análise
 
 A Etapa 1 teve como objetivo iniciar a análise de segurança do **BAITA EVENTOS** antes da implementação, compreendendo o funcionamento da plataforma e identificando as formas pelas quais ela poderia ser explorada.
 
 A análise partiu da descrição do sistema ([01-descricao-do-sistema](01-descricao-do-sistema.md)), dos usuários e ativos ([02-usuarios-ativos](02-usuarios-ativos.md)) e da visão da arquitetura ([03-arquitetura](03-arquitetura.md)). Sobre essa base, foi realizada a modelagem de ameaças com o **STRIDE** ([04-modelagem-stride](04-modelagem-stride.md)), que selecionou 30 ameaças contextualizadas a partir das 111 geradas automaticamente pelo Microsoft Threat Modeling Tool, e foram elaborados os casos de abuso ([05-casos-de-abuso](05-casos-de-abuso.md)), que representam 10 situações concretas de uso malicioso da plataforma.
 
-## 6.2 Ameaças consideradas mais preocupantes
+## 2 Ameaças consideradas mais preocupantes
 
 Entre as 30 ameaças selecionadas, destacam-se como mais preocupantes:
 
@@ -19,7 +19,7 @@ Entre as 30 ameaças selecionadas, destacam-se como mais preocupantes:
 
 Essas ameaças merecem atenção prioritária porque podem afetar simultaneamente a confidencialidade, a integridade, a disponibilidade e a rastreabilidade das operações da plataforma, atingindo participantes e usuários internos ao mesmo tempo.
 
-## 6.3 Ativos mais importantes
+## 3 Ativos mais importantes
 
 Os ativos cujo comprometimento causaria maior prejuízo são:
 
@@ -34,7 +34,7 @@ Os ativos cujo comprometimento causaria maior prejuízo são:
 
 A perda, alteração ou indisponibilização desses ativos gera danos diretos aos usuários, prejuízo à organização do evento e perda de confiança na plataforma.
 
-## 6.4 Abusos com maior impacto potencial
+## 4 Abusos com maior impacto potencial
 
 Embora todos os casos de abuso documentados sejam relevantes, alguns possuem potencial de dano mais amplo:
 
@@ -45,7 +45,7 @@ Embora todos os casos de abuso documentados sejam relevantes, alguns possuem pot
 
 Esses abusos combinam acesso indevido com alteração ou exposição de dados, generalizando o prejuízo para todos os usuários da plataforma.
 
-## 6.5 Dificuldades encontradas
+## 5 Dificuldades encontradas
 
 As principais dificuldades durante a análise foram:
 
@@ -54,7 +54,7 @@ As principais dificuldades durante a análise foram:
 - **escopo da descrição sem implementação:** descrever o funcionamento e os fluxos de um sistema ainda não construído exigiu decisões sobre o que detalhar, evitando especificar requisitos completos;
 - **avaliação da prioridade fornecida pela ferramenta:** todas as ameaças foram exportadas com prioridade `High`, o que não reflete o risco real; a relevância precisou ser analisada pelo grupo com base nos ativos e na arquitetura.
 
-## 6.6 Medidas de proteção indicativas
+## 6 Medidas de proteção indicativas
 
 Embora a proposição de soluções completas não seja objetivo desta etapa, as medidas a seguir são indicadas como direções de proteção para as ameaças mais relevantes:
 
@@ -65,7 +65,5 @@ Embora a proposição de soluções completas não seja objetivo desta etapa, as
 - **criptografia em trânsito e restrição de acesso ao banco**, mantendo o acesso apenas pela API (Information Disclosure);
 - **limitação de requisições (rate limiting), controle de vagas e planos de contingência**, para reduzir a indisponibilidade (Denial of Service);
 - **autenticação mútua com o serviço de e-mail e validação do destinatário**, reduzindo o risco de envio de convites e tokens para destinos controlados pelo atacante (Spoofing).
-
-## 6.7 Transição para as próximas etapas
 
 Na Etapa 2, as ameaças identificadas nesta análise serão transformadas em eventos de risco, avaliados por probabilidade e impacto, priorizados e tratados conforme as funções do NIST Cybersecurity Framework 2.0. A coerência entre os documentos desta etapa — ameaças, casos de abuso, ativos e arquitetura — será o ponto de partida para a construção do plano de tratamento de riscos.
