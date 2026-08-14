@@ -1,3 +1,11 @@
+# 20. Diagrama da arquitetura segura
+
+O diagrama a seguir apresenta a arquitetura segura proposta para a plataforma BAITA Eventos. Ele relaciona os usuários, a página pública, a API REST, a autenticação federada com Google/OIDC, as regras de autorização, o MongoDB, o serviço de e-mail, os registros de logs, o monitoramento e os controles de disponibilidade e recuperação.
+
+![Diagrama da arquitetura segura da plataforma BAITA Eventos](../../diagramas/etapa-3/arquitetura-de-software-seguro.drawio.png)
+
+*Figura 1 — Diagrama da arquitetura segura da plataforma BAITA Eventos.*
+
 # 21. Decisões de arquitetura
 
 ## 21.3 Decisão 3 — Implementar controles de disponibilidade e recuperação
