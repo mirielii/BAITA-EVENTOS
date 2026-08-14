@@ -1,6 +1,6 @@
-# 21.1 Testes antes da implementação
+# Testes antes da implementação
 
-## 21.1.2 Prática 2 — Proteção de sessões autenticadas
+## Prática 2 — Proteção de sessões autenticadas
 
 | Item | Descrição |
 |---|---|
