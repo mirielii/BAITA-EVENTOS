@@ -281,6 +281,9 @@ Como próximos passos, o grupo recomenda: implementar os controles seguindo a or
 │   ├── ameacas-stride-original.csv
 │   ├── ameacas-stride-original.xlsx
 │   └── ameacas-stride-selecionadas.xlsx
+├── relatorio/
+│   ├── relatorio-baita-eventos.md
+│   └── relatorio-baita-eventos.pdf
 └── roteiros/
     ├── entrega-6/etapa-6-deteccao-de-intrusoes.md
     └── entrega-7/entrega-7-devsecops-videofinal.md
