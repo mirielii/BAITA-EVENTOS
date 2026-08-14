@@ -1,10 +1,10 @@
-# 9.3 Mapeamento dos riscos para o NIST CSF 2.0
+# Mapeamento dos riscos para o NIST CSF 2.0
 
 O mapeamento foi realizado de acordo com os resultados de segurança necessários para tratar cada risco. As funções não foram marcadas automaticamente: cada associação considera as características do evento, os componentes afetados e as medidas necessárias para prevenção, detecção, resposta ou recuperação.
 
 Nem todos os riscos exigem restauração de dados ou serviços. Por isso, a função **Recover** foi associada apenas aos cenários em que essa necessidade foi identificada. Da mesma forma, a função **Govern** foi relacionada somente aos riscos que dependem diretamente de políticas, responsabilidades, requisitos institucionais ou gestão de fornecedores.
 
-## 9.3.1 Tabela de mapeamento
+## Tabela de mapeamento
 
 | Risco | Govern | Identify | Protect | Detect | Respond | Recover |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -19,7 +19,7 @@ Nem todos os riscos exigem restauração de dados ou serviços. Por isso, a fun�
 | R09 | X | X | X | X | X | X |
 | R10 |  | X | X | X | X |  |
 
-## 9.3.2 Justificativas do mapeamento
+## Justificativas do mapeamento
 
 ### R01 — Comprometimento de contas autenticadas
 
@@ -120,7 +120,7 @@ O R09 está relacionado às seis funções porque envolve gestão da continuidad
 
 A função Govern não foi considerada necessária para o tratamento inicial, pois existem mecanismos técnicos bem definidos para reduzir o risco. Recover também não foi marcada porque a resposta principal está concentrada na contenção da sessão e das operações forjadas.
 
-## 9.3.3 Síntese do mapeamento
+## Síntese do mapeamento
 
 As funções **Identify**, **Protect**, **Detect** e **Respond** aparecem com maior frequência porque os riscos analisados exigem conhecimento dos componentes envolvidos, aplicação de salvaguardas, monitoramento de atividades suspeitas e capacidade de contenção.
 
