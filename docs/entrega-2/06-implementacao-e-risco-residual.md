@@ -1,6 +1,6 @@
 # Implementação e risco residual
 
-## 1.5 Ordem inicial de implementação
+## Ordem inicial de implementação
 
 A ordem inicial de implementação foi definida considerando a classificação dos riscos, a importância dos componentes afetados, as dependências técnicas, o custo, o impacto esperado e a facilidade de implementação.
 
@@ -27,7 +27,7 @@ Os controles de autenticação, autorização e sessão foram posicionados antes
 
 Os controles que dependem de infraestrutura ou de fornecedores externos aparecem posteriormente por exigirem coordenação adicional. A sequência não impede a realização paralela de atividades quando houver responsáveis e recursos disponíveis.
 
-## 1.6 Estimativa do risco residual
+## Estimativa do risco residual
 
 O risco residual representa o nível esperado após a implementação dos controles propostos. Como os controles ainda não foram implementados nem testados, os valores desta seção são estimativas e não representam uma comprovação de eficácia.
 
@@ -46,7 +46,7 @@ O impacto foi mantido em nível elevado nos cenários em que os controles atuam 
 | R09 | Crítico — 16 | 2 | 3 | 6 | Médio | Devem existir monitoramento, limitação de requisições, cópias de segurança testadas e procedimentos capazes de restaurar os serviços dentro do período definido. |
 | R10 | Alto — 8 | 1 | 4 | 4 | Médio | As operações autenticadas que alteram dados devem possuir proteção contra CSRF, e os testes de requisições forjadas não devem ser bem-sucedidos. |
 
-### 1.6.1 Condições gerais de aceitação
+### Condições gerais de aceitação
 
 A aceitação do risco residual depende da implementação e da verificação dos controles propostos. Um risco não deve ser considerado aceitável apenas porque sua pontuação estimada foi reduzida.
 
@@ -61,7 +61,7 @@ Antes da aceitação, devem ser observadas as seguintes condições:
 
 Se as evidências demonstrarem que os controles não produziram a redução esperada, a probabilidade, o impacto e a estratégia de tratamento deverão ser reavaliados.
 
-## 1.7 Considerações finais
+## Considerações finais
 
 A análise demonstrou que os riscos mais relevantes da plataforma BAITA Eventos estão relacionados à indisponibilidade dos serviços, ao comprometimento de contas, à execução de operações sem autorização, à inserção de conteúdo malicioso e às fraudes em funcionalidades públicas.
 
