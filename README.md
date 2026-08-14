@@ -53,11 +53,9 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   │   └── 05-decisoes-arquitetura.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
 │   │   ├── 01-contexto-e-testes-autorizacao.md
-│   │   ├── 02-implementacao-autorizacao.md
-│   │   ├── 03-resultados-e-referencia-autorizacao.md
+│   │   ├── 02-03-implementacao-e-resultados-autorizacao.md
 │   │   ├── 04-contexto-e-testes-sessoes.md
-│   │   ├── 05-implementacao-sessoes.md
-│   │   └── 06-resultados-e-referencia-sessoes.md
+│   │   └── 05-06-implementacao-e-resultados-sessoes.md
 │   ├── entrega-5/                  # ETAPA 5 — Verificação de vulnerabilidades
 │   │   └── 01-verificacao-de-vulnerabilidades.md
 │   └── entrega-7/                  # ETAPA 7 — DevSecOps e vídeo final
@@ -124,11 +122,9 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 | Documento | Descrição |
 |-----------|-----------|
 | [01 — Contexto e testes de autorização](docs/entrega-4/01-contexto-e-testes-autorizacao.md) | Testes TS01/TS02 definidos antes da implementação |
-| [02 — Implementação da autorização](docs/entrega-4/02-implementacao-autorizacao.md) | Pseudocódigo do controle de autorização na API REST |
-| [03 — Resultado esperado e referência](docs/entrega-4/03-resultados-e-referencia-autorizacao.md) | Resultado esperado e OWASP Authorization Cheat Sheet |
+| [02-03 — Implementação e resultados da autorização](docs/entrega-4/02-03-implementacao-e-resultados-autorizacao.md) | Pseudocódigo, resultado esperado e OWASP Authorization Cheat Sheet |
 | [04 — Contexto e testes de sessões](docs/entrega-4/04-contexto-e-testes-sessoes.md) | Testes TS03/TS04 definidos antes da implementação |
-| [05 — Implementação de sessões](docs/entrega-4/05-implementacao-sessoes.md) | Pseudocódigo da criação de sessões locais protegidas |
-| [06 — Resultado esperado e referência (sessões)](docs/entrega-4/06-resultados-e-referencia-sessoes.md) | Resultado esperado e OWASP Session Management Cheat Sheet |
+| [05-06 — Implementação e resultados de sessões](docs/entrega-4/05-06-implementacao-e-resultados-sessoes.md) | Pseudocódigo, resultado esperado e OWASP Session Management Cheat Sheet |
 
 ---
 
