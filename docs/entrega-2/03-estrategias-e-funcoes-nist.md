@@ -1,6 +1,6 @@
-# 1. Tratamento dos riscos com o NIST CSF
+# Tratamento dos riscos com o NIST CSF
 
-## 1.1 Estratégias de tratamento
+## Estratégias de tratamento
 
 Após a priorização dos riscos, foram definidas as estratégias mais adequadas para seu tratamento.
 
@@ -13,7 +13,7 @@ As estratégias foram selecionadas considerando a classificação dos riscos, os
 
 A estratégia predominante foi a redução, pois a maioria dos riscos está relacionada a funcionalidades essenciais da plataforma BAITA Eventos. Essas funcionalidades não podem ser eliminadas, mas podem receber medidas de proteção, monitoramento e resposta.
 
-### 1.1.1 Estratégias selecionadas
+### Estratégias selecionadas
 
 | Risco | Estratégia | Justificativa |
 |---|---|---|
@@ -28,38 +28,38 @@ A estratégia predominante foi a redução, pois a maioria dos riscos está rela
 | R09 — Indisponibilidade da plataforma | Reduzir | A interrupção dos serviços não pode ser completamente evitada, mas sua probabilidade e seu impacto podem ser reduzidos com limitação de requisições, monitoramento, cópias de segurança, redundância e procedimentos de recuperação. O tratamento também pode contar com o apoio de serviços terceirizados de infraestrutura, sem retirar da plataforma a responsabilidade pela continuidade e pela recuperação. |
 | R10 — Execução de operações por CSRF | Reduzir | As operações autenticadas são necessárias para a plataforma. Tokens ant-CSRF, configuração segura de cookies e validação da origem das requisições podem reduzir a possibilidade de operações forjadas. |
 
-### 1.1.2 Observações sobre o compartilhamento de riscos
+### Observações sobre o compartilhamento de riscos
 
 No R08, o compartilhamento não transfere integralmente a responsabilidade para o provedor de e-mail. A plataforma BAITA Eventos continua responsável por selecionar e configurar adequadamente o serviço, limitar a validade dos tokens, impedir sua reutilização e evitar a inclusão de informações sensíveis desnecessárias nas mensagens.
 
 No R09, a estratégia principal permanece sendo a redução. Entretanto, alguns mecanismos de disponibilidade podem contar com serviços terceirizados, como infraestrutura em nuvem, distribuição de conteúdo, balanceamento de carga e serviços gerenciados. Esse apoio representa um compartilhamento parcial da operação, mas não elimina a responsabilidade da plataforma pelo planejamento da continuidade e pela recuperação dos serviços.
 
-## 1.2 Funções do NIST CSF 2.0
+## Funções do NIST CSF 2.0
 
 O NIST Cybersecurity Framework 2.0 organiza os resultados esperados de segurança cibernética em seis funções: **Govern**, **Identify**, **Protect**, **Detect**, **Respond** e **Recover**.
 
 As funções não representam controles específicos. Elas fornecem uma estrutura para organizar os resultados de segurança esperados e orientar a definição das medidas de tratamento. Um mesmo risco pode estar relacionado a mais de uma função, desde que essa relação seja justificada.
 
-### 1.2.1 Govern — Governar
+### Govern — Governar
 
 A função **Govern** está relacionada ao estabelecimento de políticas, responsabilidades, critérios de decisão e supervisão da segurança. No BAITA Eventos, inclui a definição de responsabilidades administrativas, regras de acesso, requisitos para fornecedores e critérios de aceitação dos riscos.
 
-### 1.2.2 Identify — Identificar
+### Identify — Identificar
 
 A função **Identify** envolve a compreensão dos ativos, dependências, ameaças, vulnerabilidades e riscos. Na plataforma, inclui a identificação das contas privilegiadas, funcionalidades críticas, dados tratados, integrações externas e dependências entre a aplicação web, a API REST, o MongoDB e o serviço de e-mail.
 
-### 1.2.3 Protect — Proteger
+### Protect — Proteger
 
 A função **Protect** reúne resultados destinados a reduzir a probabilidade ou o impacto dos riscos. Relaciona-se à autenticação, autorização, proteção de sessões, validação de entradas, segurança das comunicações, cópias de segurança e proteção contra requisições maliciosas.
 
-### 1.2.4 Detect — Detectar
+### Detect — Detectar
 
 A função **Detect** envolve a identificação de atividades suspeitas e eventos de segurança. No BAITA Eventos, pode incluir registros de auditoria, monitoramento de autenticações, detecção de alterações indevidas, alertas de excesso de requisições e acompanhamento das integrações.
 
-### 1.2.5 Respond — Responder
+### Respond — Responder
 
 A função **Respond** está relacionada às ações executadas após a identificação de um incidente. Inclui bloquear contas ou sessões, interromper operações maliciosas, investigar registros, comunicar os responsáveis e conter os efeitos do evento.
 
-### 1.2.6 Recover — Recuperar
+### Recover — Recuperar
 
 A função **Recover** envolve a restauração dos serviços e dados afetados. Para a plataforma, pode incluir a recuperação de informações a partir de cópias de segurança, a reversão de alterações indevidas e o restabelecimento das funcionalidades após uma indisponibilidade.
