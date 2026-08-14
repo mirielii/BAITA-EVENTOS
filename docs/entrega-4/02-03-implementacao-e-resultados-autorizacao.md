@@ -1,6 +1,6 @@
-# 21.2 Prática 1 — Controle de autorização na API REST
+# Prática 1 — Controle de autorização na API REST
 
-## 21.2.1 Implementação em pseudocódigo
+## Implementação em pseudocódigo
 
 A implementação abaixo apresenta, em pseudocódigo, como a API REST pode validar a autorização antes de atualizar uma atividade. A solução é baseada nos testes TS01 e TS02 definidos anteriormente.
 
@@ -47,7 +47,7 @@ A validação é executada no servidor, antes da alteração dos dados. O contro
 
 Dessa forma, uma solicitação direta à API REST não será aceita somente porque o usuário está autenticado. A operação também dependerá das permissões e do vínculo com o recurso solicitado.
 
-## 21.2.2 Resultado esperado
+## Resultado esperado
 
 A prática de controle de autorização na API REST foi definida para reduzir o risco R02 — Execução de operações sem autorização e atender ao requisito RS03 — Autorização de operações protegidas.
 
@@ -61,7 +61,7 @@ Chamadas diretas à API REST realizadas por usuários sem permissão deverão se
 
 Com isso, espera-se reduzir a possibilidade de acesso indevido a eventos, atividades, avaliações, inscrições e funcionalidades administrativas.
 
-## 21.2.3 Referência OWASP utilizada
+## Referência OWASP utilizada
 
 A prática foi baseada na [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).
 
