@@ -50,7 +50,7 @@ Realizar a análise de segurança do sistema **BAITA EVENTOS**, aplicando técni
 │   ├── entrega-3/                  # ETAPA 3 — Arquitetura segura
 │   │   ├── 01-02-03-requisitos-de-seguranca.md
 │   │   ├── 04-vulnerabilidades-catalogadas.md
-│   │   └── 05-decisoes-arquitetura.md
+│   │   └── 05-06-decisoes-e-rastreabilidade.md
 │   ├── entrega-4/                  # ETAPA 4 — Código seguro e testes
 │   │   ├── 01-contexto-e-testes-autorizacao.md
 │   │   ├── 02-03-implementacao-e-resultados-autorizacao.md
@@ -115,7 +115,7 @@ A documentação de cada etapa do trabalho está organizada na pasta **docs/**, 
 |-----------|-----------|
 | [01-02-03 — Requisitos de segurança](docs/entrega-3/01-02-03-requisitos-de-seguranca.md) | Requisitos RS01, RS02 e RS03: disponibilidade, proteção de contas e autorização de operações |
 | [04 — Vulnerabilidades catalogadas](docs/entrega-3/04-vulnerabilidades-catalogadas.md) | Mapeamento de vulnerabilidades catalogadas (CWE) para os riscos prioritários |
-| [05 — Decisões de arquitetura](docs/entrega-3/05-decisoes-arquitetura.md) | Arquitetura segura e justificativas |
+| [05-06 — Decisões e rastreabilidade](docs/entrega-3/05-06-decisoes-e-rastreabilidade.md) | Diagrama, decisões de arquitetura e rastreabilidade da arquitetura segura |
 
 ### Etapa 4 — Código seguro e testes
 
