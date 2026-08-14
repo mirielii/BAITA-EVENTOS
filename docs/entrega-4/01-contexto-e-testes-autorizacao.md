@@ -1,16 +1,16 @@
-# 21. Práticas de código seguro
+# Práticas de código seguro
 
 Foram selecionadas duas práticas de código seguro derivadas dos riscos e requisitos definidos nas etapas anteriores. A primeira prática trata da validação de autorização na API REST; a segunda trata da proteção de sessões autenticadas.
 
 A definição dessas práticas busca transformar os requisitos de segurança em comportamentos concretos que possam ser incorporados ao desenvolvimento da plataforma. Dessa forma, os controles de segurança deixam de ser apenas especificações documentais e passam a ser associados a testes e critérios verificáveis durante a implementação.
 
-## 21.1 Testes antes da implementação
+## Testes antes da implementação
 
 Os testes foram definidos antes da implementação para orientar o comportamento seguro esperado da API REST. A prática a seguir está relacionada ao risco R02 e ao requisito RS03.
 
 A definição antecipada dos testes permite estabelecer previamente quais situações devem ser permitidas e quais devem ser bloqueadas pela aplicação. Isso reduz a possibilidade de que a implementação considere apenas o fluxo normal de utilização e deixe de tratar cenários em que um usuário autenticado tenta acessar ou modificar recursos que não estão sob sua responsabilidade.
 
-### 21.1.1 Prática 1 — Controle de autorização na API REST
+###Prática 1 — Controle de autorização na API REST
 
 | Item                     | Descrição |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
