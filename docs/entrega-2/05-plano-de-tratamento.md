@@ -1,4 +1,4 @@
-# 1.4 Plano de tratamento
+# Plano de tratamento
 
 Com base nas estratégias definidas e no mapeamento para o NIST CSF 2.0, foi elaborado um plano de tratamento para os riscos identificados na plataforma BAITA Eventos.
 
@@ -21,7 +21,7 @@ Como os controles ainda não foram implementados, o plano representa uma propost
 | R09 — Indisponibilidade da plataforma | Reduzir | Aplicar limitação de requisições; monitorar disponibilidade e consumo de recursos; criar cópias de segurança; testar a restauração; estabelecer procedimentos de resposta; implementar, quando viável, mecanismos de redundância para componentes e serviços essenciais. | Govern, Identify, Protect, Detect, Respond e Recover | Equipe de desenvolvimento, responsável pela infraestrutura e administração da plataforma | Painéis e alertas de monitoramento; arquivos de backup; resultados de testes de restauração; registros de incidentes; procedimento de continuidade documentado; evidências da configuração de redundância, quando implementada. |
 | R10 — Execução de operações por CSRF | Reduzir | Utilizar tokens ant-CSRF nas operações que alteram o estado; configurar cookies com `SameSite`, `Secure` e `HttpOnly`; validar a origem ou o referenciador quando adequado; exigir nova confirmação para operações sensíveis. | Identify, Protect, Detect e Respond | Equipe de desenvolvimento | Testes de CSRF; configurações dos cookies; registros de requisições rejeitadas; resultados dos testes das operações autenticadas. |
 
-### 1.4.1 Relação entre estratégia, controles e evidências
+### Relação entre estratégia, controles e evidências
 
 Os controles propostos foram definidos de acordo com a estratégia atribuída a cada risco. Nos riscos tratados pela estratégia **Reduzir**, as medidas buscam diminuir a probabilidade de ocorrência, limitar o impacto ou facilitar a detecção, a resposta e a recuperação.
 
@@ -29,7 +29,7 @@ No R08, a estratégia **Compartilhar** envolve a utilização de um provedor de 
 
 As evidências de verificação foram definidas para permitir que o grupo confirme futuramente se os controles foram implementados. A simples indicação de um controle no plano não comprova sua eficácia. Essa confirmação dependerá de configurações, registros, documentação e resultados de testes.
 
-### 1.4.2 Responsabilidades
+### Responsabilidades
 
 A atribuição dos responsáveis considera três grupos principais:
 
