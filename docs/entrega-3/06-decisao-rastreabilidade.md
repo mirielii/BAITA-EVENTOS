@@ -1,4 +1,4 @@
-# 20. Diagrama da arquitetura segura
+# Diagrama da arquitetura segura
 
 O diagrama a seguir apresenta a arquitetura segura proposta para a plataforma BAITA Eventos. Ele relaciona os usuários, a página pública, a API REST, a autenticação federada com Google/OIDC, as regras de autorização, o MongoDB, o serviço de e-mail, os registros de logs, o monitoramento e os controles de disponibilidade e recuperação.
 
@@ -6,9 +6,9 @@ O diagrama a seguir apresenta a arquitetura segura proposta para a plataforma BA
 
 *Figura 1 — Diagrama da arquitetura segura da plataforma BAITA Eventos.*
 
-# 21. Decisões de arquitetura
+# Decisões de arquitetura
 
-## 21.3 Decisão 3 — Implementar controles de disponibilidade e recuperação
+## Decisão 3 — Implementar controles de disponibilidade e recuperação
 
 | Elemento | Descrição |
 |---|---|
@@ -18,7 +18,7 @@ O diagrama a seguir apresenta a arquitetura segura proposta para a plataforma BA
 | Componentes afetados | API REST, MongoDB, serviço de logs e monitoramento, infraestrutura de cópias de segurança e serviços externos relevantes. |
 | Resultado esperado | Redução da probabilidade de indisponibilidade, identificação mais rápida de falhas, preservação dos dados e capacidade de restaurar os serviços essenciais após um incidente. |
 
-# 22. Rastreabilidade da arquitetura segura
+# Rastreabilidade da arquitetura segura
 
 A proposta da Etapa 3 mantém a rastreabilidade com as etapas anteriores. Os riscos prioritários da Etapa 2 foram utilizados como origem dos requisitos de segurança, das decisões de arquitetura e dos controles posicionados no diagrama da arquitetura segura.
 
