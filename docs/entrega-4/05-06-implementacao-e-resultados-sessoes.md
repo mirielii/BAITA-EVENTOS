@@ -1,6 +1,6 @@
-# 21.3 Prática 2 — Proteção de sessões autenticadas
+# Prática 2 — Proteção de sessões autenticadas
 
-## 21.3.1 Implementação em pseudocódigo
+## Implementação em pseudocódigo
 
 A implementação abaixo apresenta, em pseudocódigo, como a plataforma pode validar o token fornecido pelo Google e criar uma sessão local protegida. A solução é baseada nos testes TS03 e TS04 definidos anteriormente.
 
@@ -68,7 +68,7 @@ A sessão local deverá possuir identificador aleatório, prazo de expiração e
 
 Com isso, espera-se reduzir o risco de uso indevido de sessões e impedir que tokens inválidos ou expirados forneçam acesso às funcionalidades autenticadas da plataforma.
 
-## 21.3.3 Referência OWASP utilizada
+## Referência OWASP utilizada
 
 A prática foi baseada na [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
 
