@@ -56,7 +56,7 @@ A plataforma não deve utilizar diretamente o token Google como sessão da aplic
 
 A sessão local poderá ser invalidada quando houver indício de comprometimento, bloqueio da conta ou encerramento explícito da sessão.
 
-## 21.3.2 Resultado esperado
+## Resultado esperado
 
 A prática de proteção de sessões autenticadas foi definida para reduzir o risco R01 — Comprometimento de contas autenticadas e atender ao requisito RS02 — Proteção de contas autenticadas.
 
