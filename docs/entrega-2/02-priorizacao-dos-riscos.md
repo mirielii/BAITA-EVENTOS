@@ -1,10 +1,10 @@
-# 1 Priorização dos riscos
+# Priorização dos riscos
 
 A priorização foi realizada considerando a pontuação obtida pela multiplicação entre probabilidade e impacto, em conjunto com o contexto da plataforma BAITA Eventos. Também foram analisados os ativos afetados, a quantidade de usuários potencialmente atingidos, a possibilidade de recuperação, a urgência do tratamento e as dependências entre os componentes.
 
 A pontuação foi utilizada como referência inicial, mas não como único critério. Por esse motivo, a ordem de prioridade não segue necessariamente uma organização estritamente decrescente das pontuações. Um risco com pontuação menor pode receber prioridade superior quando afetar componentes centrais, possuir maior abrangência ou facilitar a ocorrência de outros riscos.
 
-### 1.1 Critérios complementares de priorização
+### Critérios complementares de priorização
 
 Foram adotados os seguintes critérios complementares:
 
@@ -15,7 +15,7 @@ Foram adotados os seguintes critérios complementares:
 - **Dependências:** influência do componente afetado sobre outras partes da plataforma;
 - **Efeito acumulado:** possibilidade de o risco facilitar ou ampliar a exploração de outros riscos.
 
-### 1.2 Ordem de prioridade
+###  Ordem de prioridade
 
 | Prioridade | Risco | Pontuação | Classificação | Justificativa da posição |
 |---:|---|---:|---|---|
@@ -30,7 +30,7 @@ Foram adotados os seguintes critérios complementares:
 | 9 | R03 — Manipulação de avaliações | 9 | Alto | Embora possua pontuação superior à de R06, R07 e R08, seus efeitos estão principalmente concentrados no processo de avaliação. A alteração de notas, comentários, pareceres ou classificações compromete a integridade e a confiança nos resultados, mas apresenta abrangência menor que os riscos posicionados anteriormente. |
 | 10 | R10 — Execução de operações por CSRF | 8 | Alto | Depende de um usuário autenticado acessar ou interagir com conteúdo preparado pelo atacante. Pode causar operações indevidas, mas exige condições específicas e pode ser reduzido com mecanismos conhecidos de proteção de sessão e validação de requisições. |
 
-### 1.3 Justificativa geral da ordem
+### Justificativa geral da ordem
 
 O R09 ocupa a primeira posição porque combina probabilidade alta, impacto muito alto e possibilidade de interrupção generalizada da plataforma. Em seguida aparecem R01 e R02, pois o comprometimento de contas e as falhas de autorização podem permitir diferentes operações indevidas e facilitar outros ataques.
 
